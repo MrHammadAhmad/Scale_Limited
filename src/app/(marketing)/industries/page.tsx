@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import { ArrowRight, MonitorSmartphone, HeartPulse, Wallet, ShoppingCart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Industries | Scale Limited",
   description: "Scale Limited brings specialized knowledge and tailored solutions to meet the unique challenges of your sector.",
 };
+
+export const revalidate = 3600; // Cache for 1 hour
 
 // Map icon names from DB or use defaults
 const getIcon = (slug: string) => {
@@ -46,7 +48,7 @@ export default async function IndustriesPage() {
   let industries = DEMO_INDUSTRIES;
 
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("industries")
       .select("name, slug, description")

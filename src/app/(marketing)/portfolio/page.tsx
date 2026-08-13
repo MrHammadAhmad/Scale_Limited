@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 export const metadata: Metadata = {
   title: "Portfolio & Success Stories | Scale Limited",
   description: "Explore our success stories and see how Scale Limited helps businesses grow through flexible staffing, reliable BPO, and technology solutions.",
 };
+
+export const revalidate = 3600; // Cache for 1 hour
 
 const DEMO_PROJECTS = [
   {
@@ -37,7 +39,7 @@ export default async function PortfolioPage() {
   let projects = DEMO_PROJECTS;
 
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("portfolio_projects")
       .select("title, slug, industry, service, summary, image")

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/server";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 // Fallback demo data
@@ -134,11 +134,13 @@ const DEMO_SERVICES = {
   }
 };
 
+export const revalidate = 3600; // Cache for 1 hour
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data: service } = await supabase
       .from("services")
       .select("title, short_description")
@@ -175,7 +177,7 @@ export default async function ServiceDetailPage({
   let service: any = null;
 
   try {
-    const supabase = await createClient();
+    const supabase = createPublicClient();
     const { data } = await supabase
       .from("services")
       .select("*")
