@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Techvista — Enterprise Software &amp; AI Consultancy</title>
+
+<!-- ============================================================
+  BUILD NOTE FOR ELEMENTOR CONVERSION
+  ------------------------------------------------------------
+  This file is a static HTML/Tailwind/JS reference build meant to be
+  rebuilt as an Elementor JSON template using ONLY native Elementor
+  widgets. Every <section> below is commented with its intended
+  Elementor mapping, e.g.:
+    <!-- [ELEMENTOR: Section > Column > Heading + Text Editor + Button] -->
+  Native widget vocabulary used throughout:
+    Heading, Text Editor, Image, Button, Icon Box, Image Box,
+    Star/Icon List, Tabs, Accordion, Testimonial, Counter,
+    Image Carousel/Basic Gallery, Form, Google Maps, Divider, Spacer.
+  Custom CSS referenced here (gradients, hover states, marquee, etc.)
+  should be moved into the WordPress Customizer's "Additional CSS" box.
+============================================================= -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { DEFAULT: '#0B2545', 800: '#102A54', 900: '#081B37' },
+          brandblue: { DEFAULT: '#0066FF', 600: '#0066FF', 700: '#1478E8' },
+          tint: { DEFAULT: '#EAF2FF', soft: '#F2F7FF' },
+          leaf: '#2ECC71',
+          gold: '#F5A623',
+          ink: '#111827',
+        },
+        fontFamily: { sans: ['Inter', 'sans-serif'] },
+        maxWidth: { site: '1280px' },
+        boxShadow: { card: '0 8px 30px -12px rgba(11,37,69,0.18)' },
+        borderRadius: { xl2: '14px' },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #111827; }
+  .blue-key { color: #0066FF; }
+  .section-pad { padding-top: 96px; padding-bottom: 96px; }
+  @media (max-width: 768px){ .section-pad { padding-top: 56px; padding-bottom: 56px; } }
+  .top-accent-green { border-top: 4px solid #2ECC71; }
+  .top-accent-blue { border-top: 4px solid #0066FF; }
+  .top-accent-gold { border-top: 4px solid #F5A623; }
+  .dropdown-panel { display: none; }
+  .has-dropdown:hover .dropdown-panel,
+  .has-dropdown:focus-within .dropdown-panel { display: block; }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  @keyframes marquee { 0% { transform: translateX(0);} 100% { transform: translateX(-50%);} }
+  .badge-circle { transition: transform .2s ease; }
+  .badge-circle:hover { transform: translateY(-4px); }
+  .tab-btn.active { background:#0066FF; color:#fff; }
+  .subnav-btn.active { color:#0066FF; font-weight:700; border-color:#0066FF; }
+  .filter-btn.active { background:#0B2545; color:#fff; }
+  .testimonial-extra { display:none; }
+  .slide { display:none; }
+  .slide.active { display:flex; }
+  ::selection { background:#0066FF; color:#fff; }
+</style>
+</head>
+
+<body class="bg-white text-ink antialiased">
+
+<!-- [ELEMENTOR: Header Template — Section > Nav Menu widget (mega-menu) + Button widget] -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+  <div class="max-w-site mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 shrink-0">
+      <div class="w-9 h-9 rounded-md bg-navy flex items-center justify-center">
+        <span class="text-brandblue font-black text-lg">T</span>
+      </div>
+      <span class="text-xl font-extrabold tracking-tight text-navy">techvista</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-navy">
+      <a href="about.html" class="hover:text-brandblue transition">About</a>
+
+      <div class="has-dropdown relative py-8 -my-8">
+        <button class="flex items-center gap-1 hover:text-brandblue transition">
+          Services
+          <svg width="10" height="10" viewBox="0 0 10 10" class="mt-0.5"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+        <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-0 w-[560px] bg-white shadow-card rounded-xl2 border border-gray-100 p-6 grid grid-cols-2 gap-2">
+          <a href="services.html#mobile" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Mobile App Development</a>
+          <a href="services.html#custom" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Custom Software Development</a>
+          <a href="services.html#mvp" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">MVP Development</a>
+          <a href="services.html#web" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Web Development</a>
+          <a href="services.html#uiux" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">UI/UX Design</a>
+          <a href="services.html#devops" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">DevOps Services</a>
+        </div>
+      </div>
+
+      <a href="industries.html" class="hover:text-brandblue transition">Industries</a>
+
+      <div class="has-dropdown relative py-8 -my-8">
+        <button class="flex items-center gap-1 hover:text-brandblue transition">
+          Solutions
+          <svg width="10" height="10" viewBox="0 0 10 10" class="mt-0.5"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+        <div class="dropdown-panel absolute left-1/2 -translate-x-1/2 top-full mt-0 w-[520px] bg-white shadow-card rounded-xl2 border border-gray-100 p-6 grid grid-cols-2 gap-2">
+          <a href="solutions.html#ai-ml" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">AI &amp; ML Solutions</a>
+          <a href="solutions.html#data" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Data Solutions</a>
+          <a href="solutions.html#observability" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Data Observability</a>
+          <a href="solutions.html#ecommerce" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">E-commerce Development</a>
+          <a href="solutions.html#genai" class="block px-3 py-2 rounded-lg hover:bg-tint text-sm font-medium">Generative AI</a>
+        </div>
+      </div>
+
+      <a href="products.html" class="hover:text-brandblue transition">Our Products</a>
+      <a href="engagement-models.html" class="hover:text-brandblue transition">Engagement Models</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="contact.html" class="hidden sm:inline-block bg-brandblue hover:bg-brandblue-700 text-white text-sm font-bold px-6 py-3 rounded-full transition">Contact Us</a>
+      <button id="menuToggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-md border border-gray-200">
+        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M2 5h16M2 10h16M2 15h16" stroke="#0B2545" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3 text-navy font-semibold text-sm">
+    <a href="about.html" class="block py-1">About</a>
+    <a href="services.html" class="block py-1">Services</a>
+    <a href="industries.html" class="block py-1">Industries</a>
+    <a href="solutions.html" class="block py-1">Solutions</a>
+    <a href="products.html" class="block py-1">Our Products</a>
+    <a href="engagement-models.html" class="block py-1">Engagement Models</a>
+    <a href="contact.html" class="block mt-2 bg-brandblue text-white text-center py-3 rounded-full">Contact Us</a>
+  </div>
+
+  <!-- [ELEMENTOR: Text Editor + 3x Button widgets inside a thin Section] -->
+  <div id="cookieBar" class="bg-gray-50 border-t border-gray-100 text-xs text-gray-600">
+    <div class="max-w-site mx-auto px-6 lg:px-10 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-center sm:text-left">We use cookies to improve your experience and analyze site traffic. See our <a href="#" class="underline text-navy">Cookie Policy</a>.</p>
+      <div class="flex items-center gap-2 shrink-0">
+        <button class="cookie-btn px-4 py-1.5 rounded-full border border-gray-300 hover:border-navy transition">Customize</button>
+        <button class="cookie-btn px-4 py-1.5 rounded-full border border-gray-300 hover:border-navy transition">Reject</button>
+        <button class="cookie-btn px-4 py-1.5 rounded-full bg-navy text-white hover:bg-navy-800 transition">Accept</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+  SECTION 1 — HERO
+  [ELEMENTOR: Section (2 columns) > Col1: Heading + Text Editor + Button
+   Col2: Image widget over Shape/Background gradient]
+============================================================= -->
+<section class="section-pad bg-gradient-to-b from-tint-soft to-white overflow-hidden">
+  <div class="max-w-site mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="text-brandblue font-bold text-sm tracking-wide uppercase mb-4">Enterprise Software Consultancy</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-navy mb-6">
+        Techvista <span class="blue-key">AI &amp; ML Solutions</span>:<br class="hidden md:block" />
+        Delivering Innovation for Tomorrow
+      </h1>
+      <p class="text-gray-600 text-lg mb-8 max-w-lg">
+        We partner with market leaders to design, build, and scale software products —
+        from early-stage MVPs to enterprise-grade AI platforms — with 19 years of
+        engineering depth behind every engagement.
+      </p>
+      <a href="contact.html" class="inline-block bg-brandblue hover:bg-brandblue-700 text-white font-bold px-8 py-4 rounded-full transition">Let's Talk</a>
+    </div>
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-tr from-brandblue/10 via-tint to-transparent rounded-xl2 blur-2xl"></div>
+      <div class="relative bg-white/60 border border-white rounded-xl2 shadow-card p-6">
+        <svg viewBox="0 0 400 320" class="w-full h-auto">
+          <defs>
+            <linearGradient id="cubeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0066FF"/>
+              <stop offset="100%" stop-color="#0B2545"/>
+            </linearGradient>
+          </defs>
+          <g opacity="0.9">
+            <polygon points="200,30 340,105 340,255 200,330 60,255 60,105" fill="none" stroke="url(#cubeGrad)" stroke-width="2"/>
+            <polygon points="200,30 340,105 200,180 60,105" fill="#0066FF" fill-opacity="0.08" stroke="url(#cubeGrad)" stroke-width="1.5"/>
+            <line x1="200" y1="180" x2="200" y2="330" stroke="url(#cubeGrad)" stroke-width="1.5"/>
+            <line x1="60" y1="105" x2="60" y2="255" stroke="url(#cubeGrad)" stroke-width="1.5"/>
+            <line x1="340" y1="105" x2="340" y2="255" stroke="url(#cubeGrad)" stroke-width="1.5"/>
+            <circle cx="200" cy="180" r="5" fill="#F5A623"/>
+            <circle cx="60" cy="105" r="4" fill="#2ECC71"/>
+            <circle cx="340" cy="255" r="4" fill="#0066FF"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 2 — TRUST / PARTNERSHIP BANNER (carousel)
+  [ELEMENTOR: Section > Col1: Heading + Text Editor + Counter x2
+   Col2: Image Carousel widget with arrows + dots]
+============================================================= -->
+<section class="section-pad bg-white">
+  <div class="max-w-site mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="text-brandblue font-bold text-sm tracking-wide uppercase mb-4">Why Market Leaders Trust Us</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-6 leading-snug">
+        A Track Record Built on <span class="blue-key">Open Source</span> &amp; Long-Term Partnership
+      </h2>
+      <div class="grid grid-cols-2 gap-6 mt-8">
+        <div>
+          <p class="text-4xl font-extrabold text-brandblue">3000+</p>
+          <p class="text-gray-500 text-sm mt-1">Pull Requests Merged</p>
+        </div>
+        <div>
+          <p class="text-4xl font-extrabold text-brandblue">10+</p>
+          <p class="text-gray-500 text-sm mt-1">Years of Open Source Contribution</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="relative bg-tint rounded-xl2 p-6 shadow-card overflow-hidden">
+        <div id="trustSlides" class="relative h-64">
+          <div class="slide active flex-col items-center justify-center text-center h-full" >
+            <div class="w-full h-40 bg-white rounded-lg shadow-inner flex items-center justify-center text-navy font-bold">Platform Dashboard — FinTech Client</div>
+            <p class="mt-4 text-sm text-gray-600">Real-time analytics platform processing 2M+ transactions/day</p>
+          </div>
+          <div class="slide flex-col items-center justify-center text-center h-full">
+            <div class="w-full h-40 bg-white rounded-lg shadow-inner flex items-center justify-center text-navy font-bold">Marketplace App — E-commerce Client</div>
+            <p class="mt-4 text-sm text-gray-600">Multi-vendor marketplace serving 500K+ monthly active users</p>
+          </div>
+          <div class="slide flex-col items-center justify-center text-center h-full">
+            <div class="w-full h-40 bg-white rounded-lg shadow-inner flex items-center justify-center text-navy font-bold">Care Portal — Healthcare Client</div>
+            <p class="mt-4 text-sm text-gray-600">HIPAA-compliant patient portal used across 40+ clinics</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-4 mt-6">
+          <button id="trustPrev" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-navy hover:text-white transition">‹</button>
+          <div id="trustDots" class="flex items-center gap-2"></div>
+          <button id="trustNext" class="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-navy hover:text-white transition">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 3 — MILESTONE STATS STRIP
+  [ELEMENTOR: Section (dark navy bg) > Heading + 4x Counter widgets in columns]
+============================================================= -->
+<section class="bg-navy text-white">
+  <div class="max-w-site mx-auto px-6 lg:px-10 pt-20 pb-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold leading-snug">
+      A Journey of <span class="text-brandblue">19 years</span> with
+      <span class="text-brandblue">550+ partnerships</span> and
+      <span class="text-brandblue">100+ technologies</span> employed
+    </h2>
+  </div>
+  <div class="max-w-site mx-auto px-6 lg:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+    <div>
+      <p class="text-4xl font-extrabold">98%</p>
+      <p class="text-sm text-gray-300 mt-2">Client Satisfaction Rate</p>
+    </div>
+    <div>
+      <p class="text-4xl font-extrabold">&lt;2%</p>
+      <p class="text-sm text-gray-300 mt-2">Detractors</p>
+    </div>
+    <div>
+      <p class="text-4xl font-extrabold">72</p>
+      <p class="text-sm text-gray-300 mt-2">Net Promoter Score</p>
+    </div>
+    <div>
+      <p class="text-4xl font-extrabold">5.4 yrs</p>
+      <p class="text-sm text-gray-300 mt-2">Avg. Client Relationship</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 4 — CLIENT LOGO STRIP
+  [ELEMENTOR: Section > Basic Gallery / Logo Grid widget (grayscale images)]
+============================================================= -->
+<section class="section-pad bg-white !pt-16 !pb-16">
+  <div class="max-w-site mx-auto px-6 lg:px-10">
+    <p class="text-center text-sm text-gray-400 font-semibold uppercase tracking-wide mb-10">Trusted by teams at</p>
+    <div class="grid grid-cols-3 md:grid-cols-7 gap-8 items-center opacity-60">
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Nimbus</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Orbita</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Fintra</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Healo</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Vantix</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Cursoro</div>
+      <div class="h-8 flex items-center justify-center font-bold text-gray-400 text-lg">Ledgerly</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 5 — TESTIMONIALS
+  [ELEMENTOR: Section > Tabs widget (filters) + 3x Testimonial widgets
+   in a row + Button widget ("Load More")]
+============================================================= -->
+<section class="section-pad bg-tint-soft">
+  <div class="max-w-site mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy">What Our <span class="blue-key">Clients</span> Say About Us</h2>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <button class="filter-btn active px-5 py-2 rounded-full border border-gray-200 text-sm font-semibold transition" data-filter="all">All</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gray-200 text-sm font-semibold transition" data-filter="technology">Technology</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gray-200 text-sm font-semibold transition" data-filter="reviews">Client Reviews</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gray-200 text-sm font-semibold transition" data-filter="enterprise">Enterprise</button>
+    </div>
+
+    <div id="testimonialGrid" class="grid md:grid-cols-3 gap-6">
+      <div class="testimonial-card bg-white rounded-xl2 shadow-card p-6" data-cat="technology">
+        <div class="font-bold text-navy mb-3">NIMBUS CLOUD</div>
+        <p class="text-gray-600 text-sm mb-6">Their engineering team embedded seamlessly with ours and shipped our AI-driven pricing engine two months ahead of schedule.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">JD</div>
+          <div><p class="font-semibold text-sm text-navy">Jamie Dutton</p><p class="text-xs text-gray-400">VP Engineering, Nimbus Cloud</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-xl2 shadow-card p-6" data-cat="reviews">
+        <div class="font-bold text-navy mb-3">HEALO</div>
+        <p class="text-gray-600 text-sm mb-6">A genuinely rare combination: senior engineering talent, transparent communication, and real accountability for outcomes.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">SR</div>
+          <div><p class="font-semibold text-sm text-navy">Sara Reyes</p><p class="text-xs text-gray-400">CTO, Healo</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card bg-white rounded-xl2 shadow-card p-6" data-cat="enterprise">
+        <div class="font-bold text-navy mb-3">LEDGERLY</div>
+        <p class="text-gray-600 text-sm mb-6">They took ownership of our legacy modernization end-to-end and reduced our infrastructure costs by 34% in the first year.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">MK</div>
+          <div><p class="font-semibold text-sm text-navy">Marcus Klein</p><p class="text-xs text-gray-400">Head of Platform, Ledgerly</p></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-extra bg-white rounded-xl2 shadow-card p-6" data-cat="technology">
+        <div class="font-bold text-navy mb-3">ORBITA</div>
+        <p class="text-gray-600 text-sm mb-6">From MVP to Series B, they scaled with us — the same team, the same context, no ramp-up tax.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">AL</div>
+          <div><p class="font-semibold text-sm text-navy">Anna Lindqvist</p><p class="text-xs text-gray-400">Founder, Orbita</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card testimonial-extra bg-white rounded-xl2 shadow-card p-6" data-cat="reviews">
+        <div class="font-bold text-navy mb-3">FINTRA</div>
+        <p class="text-gray-600 text-sm mb-6">Best vendor relationship we've had in a decade of outsourcing engineering work.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">TO</div>
+          <div><p class="font-semibold text-sm text-navy">Tomas Oduya</p><p class="text-xs text-gray-400">Director of Product, Fintra</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card testimonial-extra bg-white rounded-xl2 shadow-card p-6" data-cat="enterprise">
+        <div class="font-bold text-navy mb-3">VANTIX</div>
+        <p class="text-gray-600 text-sm mb-6">Enterprise-grade rigor with startup speed — exactly what our compliance-heavy roadmap needed.</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tint flex items-center justify-center font-bold text-brandblue">PN</div>
+          <div><p class="font-semibold text-sm text-navy">Priya Nair</p><p class="text-xs text-gray-400">COO, Vantix</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <button id="loadMoreBtn" class="border-2 border-navy text-navy font-bold px-8 py-3 rounded-full hover:bg-navy hover:text-white transition">Load More</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 6 — "YOUR VISION, OUR EXPERTISE" (dark badge band)
+  [ELEMENTOR: Section (navy bg) > Heading + Text Editor +
+   2x Icon Box/Image rows of circular badges]
+============================================================= -->
+<section class="section-pad bg-navy text-white">
+  <div class="max-w-site mx-auto px-6 lg:px-10 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Your Vision, <span class="text-brandblue">Our Expertise</span></h2>
+    <p class="text-gray-300 mb-14">If You Can Imagine It, We Can Build It</p>
+
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 mb-8 max-w-4xl mx-auto">
+      <!-- row 1: certifications -->
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">AWS</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">GCP</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Azure</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">ISO</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">SOC2</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">CMMI</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">HIPAA</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">PCI</div>
+    </div>
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 max-w-4xl mx-auto">
+      <!-- row 2: tech partners -->
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">React</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Python</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Kube</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Spark</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Node</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Go</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Rust</div>
+      <div class="badge-circle w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs font-bold mx-auto">Flutter</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 7 — "OUR OFFERINGS" (tabs + sidebar sub-nav)
+  [ELEMENTOR: Section > Tabs widget (top-level Services/Solutions) >
+   nested Section: Col1 Icon List (sub-nav), Col2 Heading + Text Editor
+   + numbered Text Editor list]
+============================================================= -->
+<section class="section-pad bg-white">
+  <div class="max-w-site mx-auto px-6 lg:px-10">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-4">Our <span class="blue-key">Offerings</span></h2>
+      <p class="text-gray-600">Whatever stage your product is at, we bring the right mix of engineering
+      depth and delivery discipline to move it forward.</p>
+    </div>
+
+    <div class="flex justify-center gap-3 mb-10">
+      <button class="tab-btn active px-6 py-2.5 rounded-full font-bold text-sm border border-gray-200 transition" data-tab="services">Our Services</button>
+      <button class="tab-btn px-6 py-2.5 rounded-full font-bold text-sm border border-gray-200 transition" data-tab="solutions">Our Solutions</button>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8 bg-tint-soft rounded-xl2 p-8">
+      <div class="md:col-span-1 flex md:flex-col gap-2 overflow-x-auto">
+        <button class="subnav-btn active text-left px-4 py-3 rounded-lg border-l-4 border-transparent text-sm font-medium text-gray-600 hover:text-navy transition whitespace-nowrap" data-subnav="itops">IT Operations</button>
+        <button class="subnav-btn text-left px-4 py-3 rounded-lg border-l-4 border-transparent text-sm font-medium text-gray-600 hover:text-navy transition whitespace-nowrap" data-subnav="mobility">Mobility &amp; Apps</button>
+        <button class="subnav-btn text-left px-4 py-3 rounded-lg border-l-4 border-transparent text-sm font-medium text-gray-600 hover:text-navy transition whitespace-nowrap" data-subnav="devqa">Development &amp; QA</button>
+      </div>
+
+      <div class="md:col-span-3 bg-white rounded-xl2 p-8 shadow-card">
+        <div class="subnav-panel" data-panel="itops">
+          <h3 class="text-xl font-bold text-navy mb-2">IT Operations</h3>
+          <p class="text-gray-600 mb-6">Keep infrastructure resilient, observable, and cost-efficient as you scale.</p>
+          <ol class="space-y-4">
+            <li><span class="font-bold text-brandblue">01.</span> <span class="font-semibold text-navy">DevOps &amp; CI/CD</span> — automated pipelines from commit to production.</li>
+            <li><span class="font-bold text-brandblue">02.</span> <span class="font-semibold text-navy">Cloud Infrastructure</span> — AWS/GCP/Azure architecture and cost governance.</li>
+            <li><span class="font-bold text-brandblue">03.</span> <span class="font-semibold text-navy">Site Reliability</span> — monitoring, on-call, and incident response.</li>
+          </ol>
+        </div>
+        <div class="subnav-panel hidden" data-panel="mobility">
+          <h3 class="text-xl font-bold text-navy mb-2">Mobility &amp; Apps</h3>
+          <p class="text-gray-600 mb-6">Native and cross-platform apps built for scale and store approval on the first try.</p>
+          <ol class="space-y-4">
+            <li><span class="font-bold text-brandblue">01.</span> <span class="font-semibold text-navy">iOS &amp; Android Native</span> — performance-first mobile engineering.</li>
+            <li><span class="font-bold text-brandblue">02.</span> <span class="font-semibold text-navy">Cross-Platform</span> — Flutter and React Native delivery.</li>
+            <li><span class="font-bold text-brandblue">03.</span> <span class="font-semibold text-navy">App Modernization</span> — legacy mobile codebase overhauls.</li>
+          </ol>
+        </div>
+        <div class="subnav-panel hidden" data-panel="devqa">
+          <h3 class="text-xl font-bold text-navy mb-2">Development &amp; QA</h3>
+          <p class="text-gray-600 mb-6">Ship faster without trading away quality — automated and manual QA built in from day one.</p>
+          <ol class="space-y-4">
+            <li><span class="font-bold text-brandblue">01.</span> <span class="font-semibold text-navy">Custom Software</span> — full-stack product engineering.</li>
+            <li><span class="font-bold text-brandblue">02.</span> <span class="font-semibold text-navy">Test Automation</span> — regression suites integrated into CI.</li>
+            <li><span class="font-bold text-brandblue">03.</span> <span class="font-semibold text-navy">Manual &amp; Exploratory QA</span> — edge-case coverage before release.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 8 — "HOW CAN WE WORK WITH YOU" (Engagement models)
+  [ELEMENTOR: Section > Heading (with Divider/underline shape) >
+   3x stacked Section rows, each: Col1 Heading+Text Editor+Button,
+   Col2 decorative Shape/Icon]
+============================================================= -->
+<section class="section-pad bg-tint-soft">
+  <div class="max-w-site mx-auto px-6 lg:px-10">
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-navy inline-block relative">
+        How Can We Work With You
+        <span class="block h-1 w-20 bg-leaf mt-3 rounded-full"></span>
+      </h2>
+    </div>
+
+    <div class="space-y-6">
+      <div class="top-accent-green bg-white rounded-xl2 shadow-card p-8 flex items-center justify-between gap-8 flex-wrap">
+        <div class="max-w-lg">
+          <h3 class="text-xl font-bold text-navy mb-2">IT Staff Augmentation</h3>
+          <p class="text-gray-600 text-sm">Extend your in-house team with vetted engineers who plug into your existing workflow within days.</p>
+        </div>
+        <div class="w-16 h-16 rounded-full bg-leaf/10 border-2 border-leaf/30 shrink-0"></div>
+      </div>
+
+      <div class="top-accent-blue bg-white rounded-xl2 shadow-card p-8 flex items-center justify-between gap-8 flex-wrap">
+        <div class="max-w-lg">
+          <h3 class="text-xl font-bold text-navy mb-2">Dedicated Teams</h3>
+          <p class="text-gray-600 text-sm">A cross-functional squad — engineering, QA, and delivery — assembled around your roadmap and working as an extension of your company.</p>
+        </div>
+        <div class="w-16 h-16 rounded-full bg-brandblue/10 border-2 border-brandblue/30 shrink-0"></div>
+      </div>
+
+      <div class="top-accent-gold bg-white rounded-xl2 shadow-card p-8 flex items-center justify-between gap-8 flex-wrap">
+        <div class="max-w-lg">
+          <h3 class="text-xl font-bold text-navy mb-2">Software Development Outsourcing</h3>
+          <p class="text-gray-600 text-sm">Hand off a defined scope end-to-end — we own delivery, quality, and timelines so you can focus elsewhere.</p>
+        </div>
+        <div class="w-16 h-16 rounded-full bg-gold/10 border-2 border-gold/30 shrink-0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  SECTION 9 — CONTACT / LEAD FORM
+  [ELEMENTOR: Section (blue bg) > Col1 Heading + Text Editor,
+   Col2 Form widget (native Elementor Form fields)]
+============================================================= -->
+<section class="bg-brandblue text-white">
+  <div class="max-w-site mx-auto px-6 lg:px-10 py-20 grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Have Questions? Let's Talk.</h2>
+      <p class="text-blue-100 max-w-md">Tell us about your project and a member of our team will get back to you within one business day.</p>
+    </div>
+
+    <form class="bg-white rounded-xl2 shadow-card p-8 text-ink space-y-4" onsubmit="event.preventDefault(); alert('Thanks — this is a static demo form.');">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input type="text" placeholder="Name" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandblue" />
+        <input type="email" placeholder="Email" required class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandblue" />
+      </div>
+      <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-500 focus:outline-none focus:border-brandblue">
+        <option>Select a Service</option>
+        <option>Mobile App Development</option>
+        <option>Custom Software Development</option>
+        <option>MVP Development</option>
+        <option>Web Development</option>
+        <option>UI/UX Design</option>
+        <option>DevOps Services</option>
+      </select>
+      <div class="grid grid-cols-3 gap-4">
+        <select class="col-span-1 border border-gray-200 rounded-lg px-2 py-3 text-sm text-gray-500 focus:outline-none focus:border-brandblue">
+          <option>+1</option><option>+44</option><option>+92</option><option>+974</option>
+        </select>
+        <input type="tel" placeholder="Phone Number" class="col-span-2 w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandblue" />
+      </div>
+      <textarea rows="3" placeholder="Project Details" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brandblue"></textarea>
+      <select class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-500 focus:outline-none focus:border-brandblue">
+        <option>Estimated Budget</option>
+        <option>&lt; $25,000</option>
+        <option>$25,000 – $100,000</option>
+        <option>$100,000 – $500,000</option>
+        <option>$500,000+</option>
+      </select>
+      <label class="flex items-center gap-2 text-xs text-gray-500">
+        <input type="checkbox" class="rounded border-gray-300" />
+        I'd like to sign an NDA before sharing project details
+      </label>
+      <button type="submit" class="w-full bg-navy hover:bg-navy-800 text-white font-bold py-3.5 rounded-full transition">Submit</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+  FOOTER
+  [ELEMENTOR: Section (navy bg) > Col1 Image(logo)+Text Editor,
+   Col2-4 Nav Menu/Icon List widgets, Basic Gallery (awards),
+   Icon Box row (offices), Social Icons widget]
+============================================================= -->
+<footer class="bg-navy text-gray-300">
+  <div class="max-w-site mx-auto px-6 lg:px-10 pt-20 pb-10">
+
+    <div class="grid md:grid-cols-5 gap-12 pb-16 border-b border-white/10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 rounded-md bg-white/10 flex items-center justify-center">
+            <span class="text-brandblue font-black text-lg">T</span>
+          </div>
+          <span class="text-xl font-extrabold text-white">techvista</span>
+        </div>
+        <p class="text-sm max-w-xs">If you can imagine it, we can build it.</p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wide">Services</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="services.html#mobile" class="hover:text-white transition">Mobile App Development</a></li>
+          <li><a href="services.html#custom" class="hover:text-white transition">Custom Software Development</a></li>
+          <li><a href="services.html#mvp" class="hover:text-white transition">MVP Development</a></li>
+          <li><a href="services.html#web" class="hover:text-white transition">Web Development</a></li>
+          <li><a href="services.html#uiux" class="hover:text-white transition">UI/UX Design</a></li>
+          <li><a href="services.html#devops" class="hover:text-white transition">DevOps Services</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wide">Solutions</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="solutions.html#ai-ml" class="hover:text-white transition">AI &amp; ML Solutions</a></li>
+          <li><a href="solutions.html#data" class="hover:text-white transition">Data Solutions</a></li>
+          <li><a href="solutions.html#observability" class="hover:text-white transition">Data Observability</a></li>
+          <li><a href="solutions.html#ecommerce" class="hover:text-white transition">E-commerce Development</a></li>
+          <li><a href="solutions.html#genai" class="hover:text-white transition">Generative AI</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wide">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-white transition">About</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+          <li><a href="#" class="hover:text-white transition">Careers</a></li>
+          <li><a href="#" class="hover:text-white transition">Open Positions</a></li>
+          <li><a href="#" class="hover:text-white transition">Imprint</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="py-12 border-b border-white/10">
+      <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wide">Awards &amp; Certifications</h4>
+      <div class="flex flex-wrap gap-4">
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-center px-2">Clutch Top 100</div>
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-center px-2">ISO 27001</div>
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-center px-2">Great Place to Work</div>
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-center px-2">AWS Partner</div>
+        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold text-center px-2">CMMI Lvl 5</div>
+      </div>
+    </div>
+
+    <div class="py-12 border-b border-white/10">
+      <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wide">Our Global Offices</h4>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Plano, USA</p>
+          <p class="text-gray-400 text-xs">6900 Dallas Pkwy, Plano, TX 75024</p>
+          <p class="text-gray-400 text-xs mt-1">+1 (469) 555-0142</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Berlin, Germany</p>
+          <p class="text-gray-400 text-xs">Friedrichstraße 68, 10117 Berlin</p>
+          <p class="text-gray-400 text-xs mt-1">+49 30 555 0187</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Lahore, Pakistan</p>
+          <p class="text-gray-400 text-xs">MM Alam Road, Gulberg III, Lahore</p>
+          <p class="text-gray-400 text-xs mt-1">+92 42 555 0110</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Doha, Qatar</p>
+          <p class="text-gray-400 text-xs">West Bay, Doha</p>
+          <p class="text-gray-400 text-xs mt-1">+974 4455 0198</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Karachi, Pakistan</p>
+          <p class="text-gray-400 text-xs">Shahrah-e-Faisal, Karachi</p>
+          <p class="text-gray-400 text-xs mt-1">+92 21 555 0123</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Riyadh, Saudi Arabia</p>
+          <p class="text-gray-400 text-xs">King Fahd Road, Riyadh</p>
+          <p class="text-gray-400 text-xs mt-1">+966 11 555 0176</p>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <p class="text-white font-semibold mb-1">Islamabad, Pakistan</p>
+          <p class="text-gray-400 text-xs">Blue Area, Islamabad</p>
+          <p class="text-gray-400 text-xs mt-1">+92 51 555 0165</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="text-sm">contact@techvista.com</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandblue transition text-xs font-bold">Li</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandblue transition text-xs font-bold">Tw</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandblue transition text-xs font-bold">Fb</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandblue transition text-xs font-bold">Ig</a>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+      <p>© 2026 Techvista. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition">Security Policy</a>
+        <a href="#" class="hover:text-white transition">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+
+  // Cookie bar dismissal
+  document.querySelectorAll('.cookie-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('cookieBar').style.display = 'none';
+    });
+  });
+
+  // Trust banner carousel
+  (function(){
+    const slides = document.querySelectorAll('#trustSlides .slide');
+    const dotsWrap = document.getElementById('trustDots');
+    let idx = 0;
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'w-2.5 h-2.5 rounded-full ' + (i === 0 ? 'bg-navy' : 'bg-gray-300');
+      dot.addEventListener('click', () => show(i));
+      dotsWrap.appendChild(dot);
+    });
+    function show(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, j) => s.classList.toggle('active', j === idx));
+      [...dotsWrap.children].forEach((d, j) => d.className = 'w-2.5 h-2.5 rounded-full ' + (j === idx ? 'bg-navy' : 'bg-gray-300'));
+    }
+    document.getElementById('trustPrev').addEventListener('click', () => show(idx - 1));
+    document.getElementById('trustNext').addEventListener('click', () => show(idx + 1));
+  })();
+
+  // Testimonial filters
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.testimonial-card').forEach(card => {
+        const match = filter === 'all' || card.dataset.cat === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+
+  // Load more testimonials
+  document.getElementById('loadMoreBtn').addEventListener('click', function(){
+    document.querySelectorAll('.testimonial-extra').forEach(el => el.style.display = 'block');
+    this.style.display = 'none';
+  });
+
+  // Offerings: top-level tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // In this static demo both tabs share the same panel content structure;
+      // wire real Services/Solutions data here if needed.
+    });
+  });
+
+  // Offerings: sidebar sub-nav
+  document.querySelectorAll('.subnav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.subnav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.subnav;
+      document.querySelectorAll('.subnav-panel').forEach(p => {
+        p.classList.toggle('hidden', p.dataset.panel !== target);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
