@@ -202,7 +202,7 @@ export default function Home() {
                 {/* Main Circular Image */}
                 <div className="absolute inset-0 rounded-full overflow-hidden border-[16px] border-white shadow-2xl bg-gray-100 z-10">
                   <Image
-                    src="/heroimg.jfif"
+                    src="/heroimg.jpg"
                     alt="Scale your business"
                     fill
                     className="object-cover object-center"
