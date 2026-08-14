@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, ArrowRight, Building2, Briefcase, Cpu, Users } from "lucide-react";
-
+//smaple comment
 const servicesMegaMenu = [
   {
     category: "Staff Augmentation",
@@ -121,8 +121,8 @@ export function Navbar() {
             <Link prefetch={false} href="/about" className={`transition-colors ${isDark ? (isActive("/about") ? "text-white" : "text-gray-300 hover:text-white") : (isActive("/about") ? "text-problue" : "text-navy hover:text-problue")}`}>About</Link>
 
             {/* Services Mega Menu */}
-            <div 
-              className="relative" 
+            <div
+              className="relative"
               ref={dropdownRef}
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
@@ -186,8 +186,8 @@ export function Navbar() {
             </div>
 
             {/* Industries Mega Menu */}
-            <div 
-              className="relative" 
+            <div
+              className="relative"
               ref={industriesRef}
               onMouseEnter={() => setIndustriesOpen(true)}
               onMouseLeave={() => setIndustriesOpen(false)}
