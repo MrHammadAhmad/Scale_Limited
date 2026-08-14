@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden">
+      <section className="py-24 bg-navy text-white relative overflow-hidden rounded-[2.5rem] mx-4 md:mx-6 lg:mx-8 my-8">
         {/* subtle background glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-problue/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-900/20 rounded-full blur-[100px] pointer-events-none" />
@@ -371,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* Interactive Offerings tabs */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden">
+      <section className="py-24 bg-navy text-white relative overflow-hidden rounded-[2.5rem] mx-4 md:mx-6 lg:mx-8 my-8">
         <motion.div
           animate={{ opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
