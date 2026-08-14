@@ -121,7 +121,12 @@ export function Navbar() {
             <Link prefetch={false} href="/about" className={`transition-colors ${isDark ? (isActive("/about") ? "text-white" : "text-gray-300 hover:text-white") : (isActive("/about") ? "text-problue" : "text-navy hover:text-problue")}`}>About</Link>
 
             {/* Services Mega Menu */}
-            <div className="relative" ref={dropdownRef}>
+            <div 
+              className="relative" 
+              ref={dropdownRef}
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button
                 onClick={() => { setServicesOpen(!servicesOpen); setIndustriesOpen(false); }}
                 className={`flex items-center gap-1 transition-colors py-8 ${isDark
@@ -181,7 +186,12 @@ export function Navbar() {
             </div>
 
             {/* Industries Mega Menu */}
-            <div className="relative" ref={industriesRef}>
+            <div 
+              className="relative" 
+              ref={industriesRef}
+              onMouseEnter={() => setIndustriesOpen(true)}
+              onMouseLeave={() => setIndustriesOpen(false)}
+            >
               <button
                 onClick={() => { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }}
                 className={`flex items-center gap-1 transition-colors py-8 ${isDark
