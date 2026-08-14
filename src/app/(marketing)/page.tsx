@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Typewriter } from "@/components/ui/Typewriter";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import {
   ArrowRight,
@@ -116,8 +117,16 @@ export default function Home() {
               className="text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.1] font-bold tracking-tight mb-6"
             >
               <motion.span variants={fadeInUp} className="block text-navy">Scale Your Business With</motion.span>
-              <motion.span variants={fadeInUp} className="text-transparent bg-clip-text bg-gradient-to-r from-problue to-blue-600 block mt-2 pb-2">
-                People, Processes & Technology
+              <motion.span variants={fadeInUp} className="block mt-2 pb-2 h-[140px] md:h-[120px] lg:h-[140px]">
+                <Typewriter
+                  words={[
+                    "Global Staffing Solutions",
+                    "Reliable BPO Services",
+                    "Intelligent AI & Automation",
+                    "Custom Software Development"
+                  ]}
+                  delayBetweenWords={2000}
+                />
               </motion.span>
             </motion.h1>
 
