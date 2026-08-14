@@ -1,5 +1,5 @@
 "use client";
-
+//Sample Comment
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -99,19 +99,19 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 flex-shrink-0 relative w-[220px] h-[64px]">
-            <Image 
-              src="/logo-white.png" 
-              alt="Scale Limited Logo" 
-              width={1073} 
-              height={375} 
+            <Image
+              src="/logo-white.png"
+              alt="Scale Limited Logo"
+              width={1073}
+              height={375}
               className={`w-full h-full object-contain absolute left-0 transition-opacity duration-300 ${isDark ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
               priority
             />
-            <Image 
-              src="/logo-dark.png" 
-              alt="Scale Limited Logo" 
-              width={1073} 
-              height={375} 
+            <Image
+              src="/logo-dark.png"
+              alt="Scale Limited Logo"
+              width={1073}
+              height={375}
               className={`w-full h-full object-contain absolute left-0 transition-opacity duration-300 ${isDark ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
               priority
             />
@@ -120,16 +120,15 @@ export function Navbar() {
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
             <Link prefetch={false} href="/" className={`transition-colors ${isDark ? (isActive("/") ? "text-white" : "text-gray-300 hover:text-white") : (isActive("/") ? "text-problue" : "text-navy hover:text-problue")}`}>Home</Link>
             <Link prefetch={false} href="/about" className={`transition-colors ${isDark ? (isActive("/about") ? "text-white" : "text-gray-300 hover:text-white") : (isActive("/about") ? "text-problue" : "text-navy hover:text-problue")}`}>About</Link>
-            
+
             {/* Services Mega Menu */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => { setServicesOpen(!servicesOpen); setIndustriesOpen(false); }}
-                className={`flex items-center gap-1 transition-colors py-8 ${
-                  isDark 
+                className={`flex items-center gap-1 transition-colors py-8 ${isDark
                     ? (isActive("/services") || servicesOpen ? "text-white" : "text-gray-300 hover:text-white")
                     : (isActive("/services") || servicesOpen ? "text-problue" : "text-navy hover:text-problue")
-                }`}
+                  }`}
               >
                 Services
                 <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
@@ -186,11 +185,10 @@ export function Navbar() {
             <div className="relative" ref={industriesRef}>
               <button
                 onClick={() => { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }}
-                className={`flex items-center gap-1 transition-colors py-8 ${
-                  isDark
+                className={`flex items-center gap-1 transition-colors py-8 ${isDark
                     ? (isActive("/industries") || industriesOpen ? "text-white" : "text-gray-300 hover:text-white")
                     : (isActive("/industries") || industriesOpen ? "text-problue" : "text-navy hover:text-problue")
-                }`}
+                  }`}
               >
                 Industries
                 <ChevronDown className={`h-4 w-4 transition-transform ${industriesOpen ? "rotate-180" : ""}`} />
@@ -256,7 +254,7 @@ export function Navbar() {
           <div className="container mx-auto px-4 py-4 space-y-2">
             <Link href="/" className="block px-4 py-2 text-white hover:bg-gray-800 rounded-md">Home</Link>
             <Link href="/about" className="block px-4 py-2 text-white hover:bg-gray-800 rounded-md">About</Link>
-            
+
             {/* Mobile Services */}
             <div>
               <button onClick={() => setServicesOpen(!servicesOpen)} className="w-full flex items-center justify-between px-4 py-2 text-white hover:bg-gray-800 rounded-md">
