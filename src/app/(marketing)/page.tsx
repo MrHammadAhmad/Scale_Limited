@@ -94,7 +94,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative bg-gray-50/30 text-navy overflow-hidden pt-24 pb-20 lg:pt-24 lg:pb-28 min-h-[90vh] flex items-center">
         {/* Background abstract shapes */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[1000px] bg-problue/90 -skew-x-[25deg] translate-x-48 hidden lg:block" />
+        <div className="absolute top-1/4 right-0 w-[500px] h-[1000px] bg-navy -skew-x-[25deg] translate-x-48 hidden lg:block" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
