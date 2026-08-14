@@ -54,6 +54,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const industriesRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -64,10 +65,14 @@ export function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (mobileMenuRef.current && mobileMenuRef.current.contains(target)) {
+        return;
+      }
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setServicesOpen(false);
       }
-      if (industriesRef.current && !industriesRef.current.contains(e.target as Node)) {
+      if (industriesRef.current && !industriesRef.current.contains(target)) {
         setIndustriesOpen(false);
       }
     };
@@ -277,7 +282,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-navy border-t border-gray-800 shadow-xl max-h-[80vh] overflow-y-auto">
+        <div ref={mobileMenuRef} className="lg:hidden absolute top-full left-0 w-full bg-navy border-t border-gray-800 shadow-xl max-h-[80vh] overflow-y-auto">
           <div className="container mx-auto px-4 py-4 space-y-2">
             <Link href="/" className="block px-4 py-2 text-white hover:bg-gray-800 rounded-md">Home</Link>
             <Link href="/about" className="block px-4 py-2 text-white hover:bg-gray-800 rounded-md">About</Link>
