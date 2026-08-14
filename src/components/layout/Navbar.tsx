@@ -139,27 +139,31 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-[80px] w-[900px] rounded-2xl bg-white text-navy border border-gray-200 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-4 duration-200">
-                  <div className="flex">
-                    {/* Categories */}
-                    <div className="flex-grow p-8 grid grid-cols-3 gap-8">
+                <div className="fixed left-0 top-[80px] w-full shadow-2xl border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
+                  {/* Background Split */}
+                  <div className="absolute inset-0 flex pointer-events-none">
+                    <div className="flex-grow bg-white"></div>
+                    <div className="w-[30%] lg:w-[35%] bg-navy"></div>
+                  </div>
+                  
+                  {/* Content Container */}
+                  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex">
+                    {/* Left: Links */}
+                    <div className="flex-grow py-12 pr-12 grid grid-cols-3 gap-12 bg-white">
                       {servicesMegaMenu.map((col) => {
-                        const Icon = col.icon;
                         return (
                           <div key={col.category}>
-                            <h3 className="text-problue font-bold mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">
-                              <Icon className="h-5 w-5" />
+                            <h3 className="text-navy font-bold text-lg mb-6 inline-block border-b-2 border-problue pb-2">
                               {col.category}
                             </h3>
-                            <ul className="space-y-3">
+                            <ul className="space-y-4">
                               {col.items.map((item) => (
                                 <li key={item.href}>
                                   <Link
                                     prefetch={false}
                                     href={item.href}
-                                    className="text-gray-600 hover:text-problue transition-colors text-sm font-medium flex items-center group"
+                                    className="text-gray-500 hover:text-problue transition-colors text-sm font-medium block"
                                   >
-                                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mr-2 group-hover:bg-problue transition-colors" />
                                     {item.label}
                                   </Link>
                                 </li>
@@ -169,14 +173,14 @@ export function Navbar() {
                         );
                       })}
                     </div>
-                    {/* Promo Card */}
-                    <div className="w-[280px] bg-gray-50 border-l border-gray-100 p-8 flex flex-col justify-center relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50" />
+                    {/* Right: Promo */}
+                    <div className="w-[30%] lg:w-[35%] bg-navy relative p-12 flex flex-col justify-center text-white overflow-hidden">
+                      <Image src="/heroimg.jpg" fill className="object-cover opacity-20 mix-blend-screen" alt="" />
                       <div className="relative z-10">
-                        <h4 className="text-xl font-bold text-navy mb-3">Scale Faster Today</h4>
-                        <p className="text-sm text-gray-500 mb-6">Talk to our experts to find the right solutions for your specific business needs.</p>
-                        <Link prefetch={false} href="/book-consultation" className="inline-flex w-full items-center justify-center bg-problue text-white px-4 py-3 rounded-lg text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
-                          Book a Consultation
+                        <div className="text-5xl font-bold mb-4 text-white">95%</div>
+                        <p className="text-lg text-blue-100 mb-8 font-medium">Client retention rate across our global operations.</p>
+                        <Link prefetch={false} href="/book-consultation" className="inline-flex items-center text-white font-bold hover:text-blue-300 transition-colors">
+                          Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </div>
                     </div>
@@ -204,32 +208,46 @@ export function Navbar() {
               </button>
 
               {industriesOpen && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-[80px] w-[600px] rounded-2xl bg-white text-navy border border-gray-200 shadow-2xl overflow-hidden p-8 animate-in fade-in slide-in-from-top-4 duration-200">
-                  <div className="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
-                    <h3 className="text-problue font-bold text-sm uppercase tracking-wider flex items-center gap-2">
-                      <Building2 className="h-5 w-5" />
-                      Industries We Serve
-                    </h3>
-                    <Link prefetch={false} href="/industries" className="text-sm text-gray-500 hover:text-problue font-medium flex items-center">
-                      View All <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
+                <div className="fixed left-0 top-[80px] w-full shadow-2xl border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute inset-0 flex pointer-events-none">
+                    <div className="flex-grow bg-white"></div>
+                    <div className="w-[30%] lg:w-[35%] bg-navy"></div>
                   </div>
-                  <div className="grid grid-cols-2 gap-6">
-                    {industriesMegaMenu.map((industry) => (
-                      <Link
-                        prefetch={false}
-                        key={industry.href}
-                        href={industry.href}
-                        className="group p-4 rounded-xl border border-transparent hover:border-blue-100 hover:bg-blue-50/50 transition-all"
-                      >
-                        <h4 className="font-bold text-navy mb-1 group-hover:text-problue transition-colors">
-                          {industry.label}
-                        </h4>
-                        <p className="text-xs text-gray-500 leading-relaxed">
-                          {industry.desc}
-                        </p>
-                      </Link>
-                    ))}
+                  
+                  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex">
+                    <div className="flex-grow py-12 pr-12 bg-white">
+                      <h3 className="text-navy font-bold text-lg mb-8 inline-block border-b-2 border-problue pb-2">
+                        Industries We Serve
+                      </h3>
+                      <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                        {industriesMegaMenu.map((industry) => (
+                          <Link
+                            prefetch={false}
+                            key={industry.href}
+                            href={industry.href}
+                            className="group block"
+                          >
+                            <h4 className="font-bold text-navy mb-2 group-hover:text-problue transition-colors">
+                              {industry.label}
+                            </h4>
+                            <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+                              {industry.desc}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="w-[30%] lg:w-[35%] bg-navy relative p-12 flex flex-col justify-center text-white overflow-hidden">
+                      <Image src="/pic2.png" fill className="object-cover opacity-20 mix-blend-screen" alt="" />
+                      <div className="relative z-10">
+                        <div className="text-4xl font-bold mb-4 text-white">Domain Expertise</div>
+                        <p className="text-lg text-blue-100 mb-8 font-medium">We bring specialized knowledge tailored to your sector's unique challenges.</p>
+                        <Link prefetch={false} href="/industries" className="inline-flex items-center text-white font-bold hover:text-blue-300 transition-colors">
+                          Explore Industries <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
