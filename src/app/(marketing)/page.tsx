@@ -125,7 +125,9 @@ export default function Home() {
                     "Intelligent AI & Automation",
                     "Custom Software Development"
                   ]}
-                  delayBetweenWords={2000}
+                  typingSpeed={60}
+                  deletingSpeed={30}
+                  delayBetweenWords={1500}
                 />
               </motion.span>
             </motion.h1>

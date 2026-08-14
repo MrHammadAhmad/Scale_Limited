@@ -60,10 +60,10 @@ export const Typewriter = ({
 
   return (
     <span className={className}>
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-problue to-blue-600">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-navy font-semibold">
         {currentText}
       </span>
-      <span className="animate-pulse border-r-4 border-problue ml-1 inline-block h-[0.8em] align-middle"></span>
+      <span className="animate-pulse border-r-4 border-blue-800 ml-1 inline-block h-[0.8em] align-middle"></span>
     </span>
   );
 };
