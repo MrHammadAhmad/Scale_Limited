@@ -141,6 +141,43 @@ export default function Home() {
               Scale Limited helps businesses accelerate growth and optimize operations through world-class offshore staffing, reliable BPO, and cutting-edge tech solutions.
             </motion.p>
 
+            {/* Mobile Animated Image (Hidden on Desktop) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative flex lg:hidden justify-center items-center z-10 my-10"
+            >
+              <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
+                {/* Rotating Shapes Wrapper */}
+                <div className="absolute inset-0 animate-[spin_24s_linear_infinite] pointer-events-none z-20">
+                  <div className="absolute inset-0 -rotate-45">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[4px] border-problue bg-white shadow-sm" />
+                  </div>
+                  <div className="absolute inset-0 rotate-[135deg]">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-[4px] border-problue bg-white shadow-sm" />
+                  </div>
+                  <div className="absolute inset-0 rotate-12">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-[2px] border-gray-300/60" />
+                  </div>
+                  <div className="absolute inset-0 -rotate-[60deg]">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-[2px] border-gray-300/60" />
+                  </div>
+                </div>
+                {/* Main Circular Image */}
+                <div className="absolute inset-0 rounded-full overflow-hidden border-[8px] sm:border-[12px] border-white shadow-2xl bg-gray-100 z-10">
+                  <Image
+                    src="/heroimg.jpg"
+                    alt="Scale your business"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -186,32 +223,32 @@ export default function Home() {
             </motion.div>
           </div>
 
-            {/* Right Side - Animated Image */}
-            <div className="relative flex justify-center items-center z-10 my-10 lg:my-0 lg:-mt-24">
-              <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[550px] lg:h-[550px]">
+            {/* Right Side - Animated Image (Desktop Only) */}
+            <div className="relative hidden lg:flex justify-center items-center z-10 lg:-mt-24">
+              <div className="relative lg:w-[550px] lg:h-[550px]">
                 {/* Rotating Shapes Wrapper */}
                 <div className="absolute inset-0 animate-[spin_24s_linear_infinite] pointer-events-none z-20">
                   {/* Thick blue ring 1 (top-left area) */}
                   <div className="absolute inset-0 -rotate-45">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 lg:w-16 lg:h-16 rounded-full border-[4px] lg:border-[6px] border-problue bg-white shadow-sm" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-16 lg:h-16 rounded-full lg:border-[6px] border-problue bg-white shadow-sm" />
                   </div>
 
                   {/* Thick blue ring 2 (bottom-right area) */}
                   <div className="absolute inset-0 rotate-[135deg]">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 lg:w-16 lg:h-16 rounded-full border-[4px] lg:border-[6px] border-problue bg-white shadow-sm" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-16 lg:h-16 rounded-full lg:border-[6px] border-problue bg-white shadow-sm" />
                   </div>
                   
                   {/* Thin grey rings (floating outside) */}
                   <div className="absolute inset-0 rotate-12">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 lg:w-12 lg:h-12 rounded-full border-[2px] border-gray-300/60" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-12 lg:h-12 rounded-full border-[2px] border-gray-300/60" />
                   </div>
                   <div className="absolute inset-0 -rotate-[60deg]">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 lg:w-20 lg:h-20 rounded-full border-[2px] border-gray-300/60" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-20 lg:h-20 rounded-full border-[2px] border-gray-300/60" />
                   </div>
                 </div>
                 
                 {/* Main Circular Image */}
-                <div className="absolute inset-0 rounded-full overflow-hidden border-[8px] sm:border-[12px] lg:border-[16px] border-white shadow-2xl bg-gray-100 z-10">
+                <div className="absolute inset-0 rounded-full overflow-hidden lg:border-[16px] border-white shadow-2xl bg-gray-100 z-10">
                   <Image
                     src="/heroimg.jpg"
                     alt="Scale your business"
