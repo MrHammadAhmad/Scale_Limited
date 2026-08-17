@@ -133,7 +133,7 @@ export function Navbar() {
             >
               <button
                 onClick={() => { setServicesOpen(!servicesOpen); setIndustriesOpen(false); }}
-                className={`flex items-center gap-1 transition-colors py-8 ${isDark
+                className={`flex items-center gap-1 transition-colors h-20 ${isDark
                   ? (isActive("/services") || servicesOpen ? "text-white" : "text-gray-300 hover:text-white")
                   : (isActive("/services") || servicesOpen ? "text-problue" : "text-navy hover:text-problue")
                   }`}
@@ -206,7 +206,7 @@ export function Navbar() {
             >
               <button
                 onClick={() => { setIndustriesOpen(!industriesOpen); setServicesOpen(false); }}
-                className={`flex items-center gap-1 transition-colors py-8 ${isDark
+                className={`flex items-center gap-1 transition-colors h-20 ${isDark
                   ? (isActive("/industries") || industriesOpen ? "text-white" : "text-gray-300 hover:text-white")
                   : (isActive("/industries") || industriesOpen ? "text-problue" : "text-navy hover:text-problue")
                   }`}
