@@ -33,7 +33,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg text-navy">Email Us</h3>
                     <p className="text-gray-600 mt-1">For general inquiries and partnership opportunities.</p>
-                    <a href="mailto:info@scalelimited.com" className="text-problue font-medium mt-2 inline-block hover:underline">info@scalelimited.com</a>
+                    <a href="mailto:info@scalelimited.cc" className="text-problue font-medium mt-2 inline-block hover:underline">info@scalelimited.cc</a>
                   </div>
                 </div>
                 
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg text-navy">Call Us</h3>
                     <p className="text-gray-600 mt-1">Available during regular business hours (EST).</p>
-                    <a href="tel:+15551234567" className="text-problue font-medium mt-2 inline-block hover:underline">+1 (555) 123-4567</a>
+                    <a href="tel:+16478709695" className="text-problue font-medium mt-2 inline-block hover:underline">+1 6478709695</a>
                   </div>
                 </div>
 

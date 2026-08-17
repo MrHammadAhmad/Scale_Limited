@@ -2,8 +2,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy');
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'info@scalelimited.com';
-const FROM_EMAIL = 'notifications@scalelimited.com'; // Requires verified domain in Resend
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'info@scalelimited.cc';
+const FROM_EMAIL = 'notifications@scalelimited.cc'; // Requires verified domain in Resend
 
 export async function sendLeadNotification(lead: any) {
   if (!process.env.RESEND_API_KEY) {

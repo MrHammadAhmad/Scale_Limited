@@ -79,13 +79,13 @@ export function Footer() {
             <h3 className="font-semibold text-lg mb-6">Contact</h3>
             <ul className="space-y-4 text-gray-400">
               <li>
-                <a href="mailto:info@scalelimited.com" className="hover:text-white transition-colors">
-                  info@scalelimited.com
+                <a href="mailto:info@scalelimited.cc" className="hover:text-white transition-colors">
+                  info@scalelimited.cc
                 </a>
               </li>
               <li>
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+16478709695" className="hover:text-white transition-colors">
+                  +1 6478709695
                 </a>
               </li>
               <li>Canada • USA • Australia</li>

@@ -54,7 +54,7 @@ export default function TermsPage() {
               In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:
             </p>
             <p>
-              <Link href="mailto:legal@scalelimited.com">legal@scalelimited.com</Link>
+              <Link href="mailto:legal@scalelimited.cc">legal@scalelimited.cc</Link>
             </p>
           </div>
         </div>

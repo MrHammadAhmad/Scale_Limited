@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
               If you have questions or comments about this Privacy Policy, please contact us at:
             </p>
             <p>
-              <Link href="mailto:privacy@scalelimited.com">privacy@scalelimited.com</Link>
+              <Link href="mailto:privacy@scalelimited.cc">privacy@scalelimited.cc</Link>
             </p>
           </div>
         </div>

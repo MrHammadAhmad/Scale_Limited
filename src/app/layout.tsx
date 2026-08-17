@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Scale Limited",
     description: "Scale Limited helps businesses grow through flexible staffing, reliable business process outsourcing, and technology-driven solutions.",
-    url: "https://scalelimited.com",
+    url: "https://scalelimited.cc",
     siteName: "Scale Limited",
     locale: "en_US",
     type: "website",
