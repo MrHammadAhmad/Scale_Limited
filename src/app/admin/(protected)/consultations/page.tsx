@@ -1,24 +1,24 @@
-import { createClient } from "@/lib/supabase/server";
+import { prisma } from "@/lib/prisma";
 
 export default async function ConsultationsPage({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const supabase = await createClient();
   const sp = await searchParams;
   const statusFilter = sp.status as string | undefined;
 
-  let query = supabase
-    .from("consultations")
-    .select("*")
-    .order("created_at", { ascending: false });
-    
+  let query: any = {
+    orderBy: { created_at: "desc" },
+  };
+
   if (statusFilter && statusFilter.toLowerCase() !== 'all') {
-    query = query.eq('status', statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1).toLowerCase());
+    query.where = {
+      status: statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1).toLowerCase()
+    };
   }
 
-  const { data: consultations } = await query;
+  const consultations = await prisma.consultation.findMany(query);
 
   return (
     <div className="space-y-6">

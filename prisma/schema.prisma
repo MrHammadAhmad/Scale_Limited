@@ -23,3 +23,42 @@ model Lead {
 
   @@map("leads")
 }
+
+model Consultation {
+  id             String   @id @default(uuid())
+  name           String
+  company        String
+  email          String
+  phone          String?
+  country        String?
+  service        String
+  preferred_date String?  // Store as YYYY-MM-DD
+  preferred_time String?
+  timezone       String?
+  budget_range   String?
+  requirements   String
+  notes          String?
+  status         String   @default("Scheduled")
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  @@map("consultations")
+}
+
+model PortfolioProject {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  client      String
+  industry    String
+  service     String
+  description String
+  image_url   String?
+  link        String?
+  published   Boolean  @default(false)
+  metrics     Json?    // Optional JSON for metrics like { "roi": "20%", "timeline": "3 months" }
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("portfolio_projects")
+}

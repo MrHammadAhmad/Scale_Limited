@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { prisma } from "@/lib/prisma";
 import { sendConsultationNotification } from "@/lib/email";
 import { z } from "zod";
 
@@ -25,27 +25,20 @@ export async function POST(req: Request) {
     // Validate request body
     const validatedData = consultationSchema.parse(body);
 
-    const supabase = await createClient();
-
-    // Insert into Supabase
-    const { data, error } = await supabase
-      .from("consultations")
-      .insert([{
+    // Insert into Supabase via Prisma
+    const consultation = await prisma.consultation.create({
+      data: {
         ...validatedData,
-        preferred_date: validatedData.preferred_date ? new Date(validatedData.preferred_date).toISOString().split('T')[0] : null
-      }])
-      .select()
-      .single();
-
-    if (error) {
-      console.error("Database error:", error);
-      return NextResponse.json({ error: "Failed to submit consultation request" }, { status: 500 });
-    }
+        preferred_date: validatedData.preferred_date 
+          ? new Date(validatedData.preferred_date).toISOString().split('T')[0] 
+          : null
+      }
+    });
 
     // Send email notification (non-blocking)
     sendConsultationNotification(validatedData).catch(console.error);
 
-    return NextResponse.json({ success: true, consultation: data }, { status: 201 });
+    return NextResponse.json({ success: true, consultation }, { status: 201 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: (error as any).errors }, { status: 400 });

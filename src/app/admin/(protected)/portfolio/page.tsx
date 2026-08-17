@@ -1,14 +1,11 @@
-import { createClient } from "@/lib/supabase/server";
+import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
 export default async function AdminPortfolioPage() {
-  const supabase = await createClient();
-
-  const { data: projects } = await supabase
-    .from("portfolio_projects")
-    .select("*")
-    .order("created_at", { ascending: false });
+  const projects = await prisma.portfolioProject.findMany({
+    orderBy: { created_at: "desc" }
+  });
 
   return (
     <div className="space-y-6">
