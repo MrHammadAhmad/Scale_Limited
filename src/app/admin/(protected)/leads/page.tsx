@@ -64,7 +64,7 @@ export default async function LeadsPage({
                       {lead.country && <div className="text-sm text-gray-500">{lead.country}</div>}
                     </td>
                     <td className="px-6 py-4">
-                      <div className="text-sm text-gray-900 max-w-xs truncate" title={lead.message}>
+                      <div className="text-sm text-gray-900 break-words min-w-[200px] max-w-md whitespace-pre-wrap">
                         {lead.message}
                       </div>
                     </td>
