@@ -56,15 +56,7 @@ export function Sidebar() {
         </nav>
       </div>
       
-      <div className="p-4 border-t border-gray-800">
-        <Link 
-          href="/admin/settings"
-          className="flex items-center px-3 py-2.5 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
-        >
-          <Settings className="mr-3 flex-shrink-0 h-5 w-5 text-gray-400" />
-          Settings
-        </Link>
-      </div>
+
     </div>
   );
 }
