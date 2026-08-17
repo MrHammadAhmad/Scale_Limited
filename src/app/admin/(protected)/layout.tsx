@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { Sidebar } from "@/components/admin/Sidebar";
-import { logoutAdmin } from "./actions";
+import { logoutAdmin } from "../actions";
 
 export default async function AdminLayout({
   children,
