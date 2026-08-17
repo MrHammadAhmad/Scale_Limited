@@ -42,18 +42,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   
   try {
-    const supabase = createPublicClient();
-    const { data: industry } = await supabase
-      .from("industries")
-      .select("name, short_description")
-      .eq("slug", slug)
-      .single();
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      const supabase = createPublicClient();
+      const { data: industry } = await supabase
+        .from("industries")
+        .select("name, short_description")
+        .eq("slug", slug)
+        .single();
 
-    if (industry) {
-      return {
-        title: `${industry.name} | Scale Limited`,
-        description: industry.short_description,
-      };
+      if (industry) {
+        return {
+          title: `${industry.name} | Scale Limited`,
+          description: industry.short_description,
+        };
+      }
     }
   } catch (e) {
     // Ignore error and fall back
@@ -79,15 +81,17 @@ export default async function IndustryDetailPage({
   let industry: any = null;
 
   try {
-    const supabase = createPublicClient();
-    const { data } = await supabase
-      .from("industries")
-      .select("*")
-      .eq("slug", slug)
-      .eq("published", true)
-      .single();
-    
-    if (data) industry = data;
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      const supabase = createPublicClient();
+      const { data } = await supabase
+        .from("industries")
+        .select("*")
+        .eq("slug", slug)
+        .eq("published", true)
+        .single();
+      
+      if (data) industry = data;
+    }
   } catch (e) {
     console.error("Supabase fetch failed, falling back to demo data", e);
   }

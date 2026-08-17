@@ -95,20 +95,6 @@ const DEMO_SERVICES = {
     benefits: ["24/7 instant responses", "Reduced support costs", "Seamless handoff to humans", "Continuous learning"],
     capabilities: ["Customer Support Bots", "Lead Qualification Bots", "Internal Knowledge Bots", "Multi-platform Integration"]
   },
-  "ai-voice-receptionists": {
-    title: "AI Voice Receptionists",
-    short_description: "Never miss a call with intelligent AI voice agents.",
-    description: "Implement AI-powered voice receptionists that can answer calls, route inquiries, schedule appointments, and provide information with natural, human-like conversations.",
-    benefits: ["Zero missed calls", "Natural conversation flow", "Automated scheduling", "Cost-effective routing"],
-    capabilities: ["Inbound Call Handling", "Appointment Scheduling", "FAQ Responses", "Call Routing"]
-  },
-  "workflow-automation": {
-    title: "Work Flow Automation",
-    short_description: "Streamline operations by automating repetitive tasks.",
-    description: "We identify bottlenecks in your processes and implement intelligent automation solutions. By connecting your tools and systems, we eliminate manual data entry and accelerate your business operations.",
-    benefits: ["Eliminate manual tasks", "Reduce human error", "Accelerate processes", "Connect disparate systems"],
-    capabilities: ["Zapier/Make Integrations", "Custom Automation Scripts", "ERP/CRM Automation", "Data Syncing"]
-  },
 
   // Fallbacks for original generic categories
   "staff-augmentation": {
@@ -140,18 +126,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   
   try {
-    const supabase = createPublicClient();
-    const { data: service } = await supabase
-      .from("services")
-      .select("title, short_description")
-      .eq("slug", slug)
-      .single();
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      const supabase = createPublicClient();
+      const { data: service } = await supabase
+        .from("services")
+        .select("title, short_description")
+        .eq("slug", slug)
+        .single();
 
-    if (service) {
-      return {
-        title: `${service.title} | Scale Limited`,
-        description: service.short_description,
-      };
+      if (service) {
+        return {
+          title: `${service.title} | Scale Limited`,
+          description: service.short_description,
+        };
+      }
     }
   } catch (e) {
     // Ignore error and fall back
@@ -177,15 +165,17 @@ export default async function ServiceDetailPage({
   let service: any = null;
 
   try {
-    const supabase = createPublicClient();
-    const { data } = await supabase
-      .from("services")
-      .select("*")
-      .eq("slug", slug)
-      .eq("published", true)
-      .single();
-    
-    if (data) service = data;
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      const supabase = createPublicClient();
+      const { data } = await supabase
+        .from("services")
+        .select("*")
+        .eq("slug", slug)
+        .eq("published", true)
+        .single();
+      
+      if (data) service = data;
+    }
   } catch (e) {
     console.error("Supabase fetch failed, falling back to demo data", e);
   }

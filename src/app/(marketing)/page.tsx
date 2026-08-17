@@ -81,9 +81,7 @@ export default function Home() {
       services: [
         "Web design & development",
         "Custom software development",
-        "AI chatbots & virtual assistants",
-        "AI voice receptionists",
-        "Work flow automation"
+        "AI chatbots & virtual assistants"
       ],
       href: "/services/technology-ai"
     }

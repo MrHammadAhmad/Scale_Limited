@@ -7,18 +7,6 @@ import { Menu, X, ChevronDown, ArrowRight, Building2, Briefcase, Cpu, Users } fr
 //smaple comment
 const servicesMegaMenu = [
   {
-    category: "Staff Augmentation",
-    icon: Users,
-    items: [
-      { label: "Full Stack Developers", href: "/services/full-stack-developers" },
-      { label: "AI & ML Engineers", href: "/services/ai-ml-engineers" },
-      { label: "UI/UX Designers", href: "/services/ui-ux-designers" },
-      { label: "Customer Support Reps", href: "/services/customer-support" },
-      { label: "Finance & Accounting", href: "/services/finance-accounting" },
-      { label: "Operations & Back Office", href: "/services/operations-back-office" },
-    ]
-  },
-  {
     category: "Business Process",
     icon: Briefcase,
     items: [
@@ -28,14 +16,25 @@ const servicesMegaMenu = [
     ]
   },
   {
+    category: "Staff Augmentation",
+    icon: Users,
+    items: [
+      { label: "Customer Support Reps", href: "/services/customer-support" },
+      { label: "Finance & Accounting", href: "/services/finance-accounting" },
+      { label: "Operations & Back Office", href: "/services/operations-back-office" },
+      { label: "", href: "#spacer" },
+      { label: "Full Stack Developers", href: "/services/full-stack-developers" },
+      { label: "AI & ML Engineers", href: "/services/ai-ml-engineers" },
+      { label: "UI/UX Designers", href: "/services/ui-ux-designers" },
+    ]
+  },
+  {
     category: "Technology Solutions",
     icon: Cpu,
     items: [
       { label: "Web Design & Development", href: "/services/web-design-development" },
       { label: "Custom Software", href: "/services/custom-software" },
       { label: "AI Chatbots & Assistants", href: "/services/ai-chatbots" },
-      { label: "AI Voice Receptionists", href: "/services/ai-voice-receptionists" },
-      { label: "Work Flow Automation", href: "/services/workflow-automation" },
     ]
   }
 ];
@@ -162,16 +161,20 @@ export function Navbar() {
                               {col.category}
                             </h3>
                             <ul className="space-y-4">
-                              {col.items.map((item) => (
-                                <li key={item.href}>
-                                  <Link
-                                    prefetch={false}
-                                    href={item.href}
-                                    className="text-gray-500 hover:text-problue transition-colors text-sm font-medium block"
-                                  >
-                                    {item.label}
-                                  </Link>
-                                </li>
+                              {col.items.map((item, idx) => (
+                                item.label === "" ? (
+                                  <li key={`spacer-${idx}`} className="h-2" aria-hidden="true" />
+                                ) : (
+                                  <li key={item.href}>
+                                    <Link
+                                      prefetch={false}
+                                      href={item.href}
+                                      className="text-gray-500 hover:text-problue transition-colors text-sm font-medium block"
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  </li>
+                                )
                               ))}
                             </ul>
                           </div>

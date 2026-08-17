@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { prisma } from "@/lib/prisma";
 import { sendLeadNotification } from "@/lib/email";
 import { z } from "zod";
 
@@ -22,24 +22,15 @@ export async function POST(req: Request) {
     // Validate request body
     const validatedData = leadSchema.parse(body);
 
-    const supabase = await createClient();
-
-    // Insert into Supabase
-    const { data, error } = await supabase
-      .from("leads")
-      .insert([validatedData])
-      .select()
-      .single();
-
-    if (error) {
-      console.error("Database error:", error);
-      return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 500 });
-    }
+    // Insert into Supabase using Prisma
+    const lead = await prisma.lead.create({
+      data: validatedData,
+    });
 
     // Send email notification (non-blocking)
     sendLeadNotification(validatedData).catch(console.error);
 
-    return NextResponse.json({ success: true, lead: data }, { status: 201 });
+    return NextResponse.json({ success: true, lead }, { status: 201 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: (error as any).errors }, { status: 400 });
