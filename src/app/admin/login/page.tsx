@@ -10,9 +10,17 @@ export default function AdminLogin() {
   async function handleSubmit(formData: FormData) {
     setLoading(true);
     setError(null);
-    const result = await loginAdmin(formData);
-    if (result?.error) {
-      setError(result.error);
+    try {
+      const result = await loginAdmin(formData);
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+      } else if (result?.success) {
+        // Redirect manually on the client
+        window.location.href = "/admin/dashboard";
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
       setLoading(false);
     }
   }

@@ -12,7 +12,6 @@ export async function loginAdmin(formData: FormData) {
 
   if (username === validUsername && password === validPassword) {
     const cookieStore = await cookies();
-    // In production, use a secure signed cookie or JWT. This is a basic implementation.
     cookieStore.set("admin_auth", "true", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -20,7 +19,7 @@ export async function loginAdmin(formData: FormData) {
       path: "/",
     });
     
-    redirect("/admin/dashboard");
+    return { success: true };
   }
 
   return { error: "Invalid username or password" };
