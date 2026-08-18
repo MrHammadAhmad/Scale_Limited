@@ -191,18 +191,40 @@ export default async function ServiceDetailPage({
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-navy text-white pt-32 pb-24 lg:pt-40 lg:pb-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <Link href="/services" className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors">
-            <ArrowRight className="mr-2 h-4 w-4 rotate-180" />
-            Back to Services
-          </Link>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            {service.title}
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300">
-            {service.short_description}
-          </p>
+      <section className="bg-navy text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full overflow-hidden z-0">
+          <div className="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-problue rounded-full mix-blend-multiply filter blur-[120px] opacity-40"></div>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="w-full lg:w-1/2 text-left">
+              <Link href="/services" className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors font-medium">
+                <ArrowRight className="mr-2 h-4 w-4 rotate-180" />
+                Back to Services
+              </Link>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                {service.title}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
+                {service.short_description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/book-consultation" className="inline-flex items-center justify-center rounded-full bg-problue text-white hover:bg-blue-600 h-14 px-8 text-lg font-semibold shadow-lg transition-all hover:-translate-y-1">
+                  Book Consultation
+                </Link>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-800 aspect-[4/3] w-full">
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" 
+                  alt={service.title} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
