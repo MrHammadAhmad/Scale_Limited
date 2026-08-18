@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { deleteConsultation, updateConsultationStatus } from "../../actions";
-import { Trash2, CheckCircle } from "lucide-react";
+import { Trash2, CheckCircle, Undo2 } from "lucide-react";
 
 export default async function ConsultationsPage({
   searchParams,
@@ -92,6 +92,16 @@ export default async function ConsultationsPage({
                           }}>
                             <button type="submit" className="text-green-500 hover:text-green-700 transition-colors p-2 rounded-full hover:bg-green-50" title="Mark as Done">
                               <CheckCircle className="w-4 h-4" />
+                            </button>
+                          </form>
+                        )}
+                        {consultation.status === 'Completed' && (
+                          <form action={async () => {
+                            "use server";
+                            await updateConsultationStatus(consultation.id, 'Scheduled');
+                          }}>
+                            <button type="submit" className="text-gray-500 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100" title="Undo completed status">
+                              <Undo2 className="w-4 h-4" />
                             </button>
                           </form>
                         )}

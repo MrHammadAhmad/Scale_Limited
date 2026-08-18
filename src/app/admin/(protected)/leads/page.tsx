@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { deleteLead, updateLeadStatus } from "../../actions";
-import { Trash2, Eye } from "lucide-react";
+import { Trash2, Eye, Undo2 } from "lucide-react";
 export default async function LeadsPage({
   searchParams,
 }: {
@@ -73,6 +73,7 @@ export default async function LeadsPage({
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                         ${lead.status === 'New' ? 'bg-green-100 text-green-800' : ''}
+                        ${lead.status === 'Viewed' ? 'bg-blue-100 text-blue-800' : ''}
                         ${lead.status === 'Contacted' ? 'bg-blue-100 text-blue-800' : ''}
                         ${lead.status === 'Qualified' ? 'bg-purple-100 text-purple-800' : ''}
                         ${lead.status === 'Closed' ? 'bg-gray-100 text-gray-800' : ''}
@@ -93,6 +94,16 @@ export default async function LeadsPage({
                           }}>
                             <button type="submit" className="text-blue-500 hover:text-blue-700 transition-colors p-2 rounded-full hover:bg-blue-50" title="Mark as Viewed">
                               <Eye className="w-4 h-4" />
+                            </button>
+                          </form>
+                        )}
+                        {lead.status === 'Viewed' && (
+                          <form action={async () => {
+                            "use server";
+                            await updateLeadStatus(lead.id, 'New');
+                          }}>
+                            <button type="submit" className="text-gray-500 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100" title="Undo viewed status">
+                              <Undo2 className="w-4 h-4" />
                             </button>
                           </form>
                         )}
