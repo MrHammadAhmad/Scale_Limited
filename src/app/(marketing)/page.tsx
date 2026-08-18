@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative bg-gray-50/30 text-navy overflow-hidden pt-24 pb-20 lg:pt-24 lg:pb-28 min-h-[90vh] flex items-center">
+      <section className="relative bg-gray-50/30 text-navy overflow-hidden pt-24 pb-12 lg:pt-24 lg:pb-16 min-h-[60vh] lg:min-h-[70vh] flex items-center">
         {/* Background abstract shapes */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[1000px] bg-navy -skew-x-[25deg] translate-x-48 hidden lg:block" />
         
@@ -181,7 +181,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 mb-16"
+              className="flex flex-col sm:flex-row gap-4"
             >
               <Link
                 href="/book-consultation"
