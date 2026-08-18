@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { deleteLead } from "../../actions";
-import { Trash2 } from "lucide-react";
+import { deleteLead, updateLeadStatus } from "../../actions";
+import { Trash2, Eye } from "lucide-react";
 export default async function LeadsPage({
   searchParams,
 }: {
