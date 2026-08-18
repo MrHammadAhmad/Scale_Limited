@@ -37,7 +37,7 @@ const DEMO_SERVICES = {
     description: "Scale your customer service operations with dedicated, multilingual support representatives. We ensure your customers receive timely, empathetic, and effective resolutions across all channels.",
     benefits: ["24/7 coverage", "Multichannel support", "High customer satisfaction", "Rapid ticket resolution"],
     capabilities: ["Email & Live Chat", "Phone Support", "Technical Support", "Customer Success"],
-    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop"
   },
   "finance-accounting": {
     title: "Finance & Accounting Staff",
@@ -79,7 +79,7 @@ const DEMO_SERVICES = {
     description: "Supercharge your sales pipeline with our dedicated lead generation teams. We handle prospecting, cold outreach, and lead qualification, delivering warm prospects directly to your closing team.",
     benefits: ["Increased sales pipeline", "Targeted prospecting", "Qualified meetings", "Scalable outreach"],
     capabilities: ["B2B Lead Generation", "Cold Calling", "Email Outreach", "Appointment Setting"],
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
   },
 
   // Technology Services

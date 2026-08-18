@@ -46,3 +46,43 @@ export async function deleteLead(id: string) {
     return { error: "Failed to delete lead" };
   }
 }
+
+export async function createPortfolioProject(formData: FormData) {
+  try {
+    const title = formData.get("title") as string;
+    const slug = formData.get("slug") as string;
+    const client = formData.get("client") as string;
+    const industry = formData.get("industry") as string;
+    const service = formData.get("service") as string;
+    const description = formData.get("description") as string;
+    const image_url = formData.get("image_url") as string || null;
+    const link = formData.get("link") as string || null;
+    const published = formData.get("published") === "on";
+
+    if (!title || !slug || !client || !industry || !service || !description) {
+      return { error: "All required fields must be provided." };
+    }
+
+    await prisma.portfolioProject.create({
+      data: {
+        title,
+        slug,
+        client,
+        industry,
+        service,
+        description,
+        image_url,
+        link,
+        published,
+      },
+    });
+
+    revalidatePath("/admin/portfolio");
+    revalidatePath("/portfolio");
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to create portfolio project:", error);
+    return { error: "Failed to create project. The slug might already be in use." };
+  }
+}
