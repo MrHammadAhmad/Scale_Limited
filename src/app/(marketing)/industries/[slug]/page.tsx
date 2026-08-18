@@ -36,7 +36,7 @@ const DEMO_INDUSTRIES = {
     description: "From managing product catalogs to handling peak-season customer support volumes, we provide the backbone operations for modern retail and e-commerce businesses to thrive in a competitive landscape.",
     benefits: ["Scalable peak-season support", "Flawless catalog management", "Enhanced buyer experience", "Data-driven insights"],
     capabilities: ["E-commerce Development", "Catalog Management", "Order Processing", "Customer Service"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop"
   }
 };
 
