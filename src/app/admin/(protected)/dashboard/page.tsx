@@ -15,11 +15,11 @@ export default async function AdminDashboard() {
   let portfolioCount = 0;
   
   try {
-    // If you have these models in Prisma schema, use them
-    // consultationsCount = await prisma.consultation.count();
-    // portfolioCount = await prisma.portfolioProject.count();
+    // Fetch actual counts from the database
+    consultationsCount = await prisma.consultation.count();
+    portfolioCount = await prisma.portfolioProject.count();
   } catch (e) {
-    // Ignore if tables don't exist
+    // Ignore if tables don't exist or fail
   }
 
   const stats = [
