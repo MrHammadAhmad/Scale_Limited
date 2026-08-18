@@ -25,6 +25,7 @@ import {
   ShoppingCart,
   Store,
   Handshake,
+  Clock,
 } from "lucide-react";
 
 const fadeInUp: Variants = {
@@ -197,28 +198,6 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Stat strip */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-200 pt-8"
-            >
-              {[
-                { value: "3", label: "Countries Served" },
-                { value: "100+", label: "Clients Supported" },
-                { value: "24/7", label: "Delivery Coverage" },
-                { value: "95%", label: "Client Retention" },
-              ].map((stat) => (
-                <motion.div key={stat.label} variants={fadeInUp}>
-                  <div className="text-3xl md:text-4xl font-bold text-navy mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
 
             {/* Right Side - Animated Image (Desktop Only) */}
@@ -259,6 +238,37 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Stat Strip */}
+      <section className="bg-problue text-white py-8 border-y border-blue-500/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 md:divide-x md:divide-blue-300/40"
+          >
+            {[
+              { value: "3", label: "Countries Served", icon: Globe },
+              { value: "100+", label: "Clients Supported", icon: Users },
+              { value: "24/7", label: "Delivery Coverage", icon: Clock },
+              { value: "95%", label: "Client Retention", icon: ShieldCheck },
+            ].map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div key={idx} variants={fadeInUp} className="flex-1 flex flex-row items-center justify-center gap-3 px-6 w-full md:w-auto">
+                  <Icon className="w-8 h-8 shrink-0 text-white/90" />
+                  <div className="flex flex-row items-baseline gap-1.5 md:gap-2">
+                    <span className="text-2xl md:text-3xl font-bold tracking-tight">{stat.value}</span>
+                    <span className="text-base md:text-lg font-medium text-white/90">{stat.label}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
