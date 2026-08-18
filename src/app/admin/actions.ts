@@ -30,3 +30,19 @@ export async function logoutAdmin() {
   cookieStore.delete("admin_auth");
   redirect("/admin/login");
 }
+
+import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
+
+export async function deleteLead(id: string) {
+  try {
+    await prisma.lead.delete({
+      where: { id },
+    });
+    revalidatePath("/admin/leads");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete lead:", error);
+    return { error: "Failed to delete lead" };
+  }
+}

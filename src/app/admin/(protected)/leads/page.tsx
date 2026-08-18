@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
-
+import { deleteLead } from "../../actions";
+import { Trash2 } from "lucide-react";
 export default async function LeadsPage({
   searchParams,
 }: {
@@ -47,6 +48,7 @@ export default async function LeadsPage({
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                 <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -82,11 +84,21 @@ export default async function LeadsPage({
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-500">
                       {new Date(lead.created_at).toLocaleDateString()}
                     </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <form action={async () => {
+                        "use server";
+                        await deleteLead(lead.id);
+                      }}>
+                        <button type="submit" className="text-red-500 hover:text-red-700 transition-colors p-2 rounded-full hover:bg-red-50" title="Delete lead">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </form>
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="px-6 py-8 text-center text-sm text-gray-500">
+                  <td colSpan={6} className="px-6 py-8 text-center text-sm text-gray-500">
                     No leads found matching your criteria.
                   </td>
                 </tr>
