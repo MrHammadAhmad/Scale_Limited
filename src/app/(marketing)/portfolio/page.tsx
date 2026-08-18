@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { createPublicClient } from "@/lib/supabase/server";
+import { prisma } from "@/lib/prisma";
 export const metadata: Metadata = {
   title: "Portfolio & Success Stories | Scale Limited",
   description: "Explore our success stories and see how Scale Limited helps businesses grow through flexible staffing, reliable BPO, and technology solutions.",
@@ -39,18 +39,31 @@ export default async function PortfolioPage() {
   let projects = DEMO_PROJECTS;
 
   try {
-    const supabase = createPublicClient();
-    const { data } = await supabase
-      .from("portfolio_projects")
-      .select("title, slug, industry, service, summary, image")
-      .eq("published", true)
-      .order("created_at", { ascending: false });
+    const data = await prisma.portfolioProject.findMany({
+      where: { published: true },
+      orderBy: { created_at: "desc" },
+      select: {
+        title: true,
+        slug: true,
+        industry: true,
+        service: true,
+        description: true,
+        image_url: true,
+      }
+    });
       
     if (data && data.length > 0) {
-      projects = data;
+      projects = data.map(p => ({
+        title: p.title,
+        slug: p.slug,
+        industry: p.industry,
+        service: p.service,
+        summary: p.description,
+        image: p.image_url || ""
+      }));
     }
   } catch (e) {
-    console.error("Supabase fetch failed, falling back to demo data", e);
+    console.error("Prisma fetch failed, falling back to demo data", e);
   }
 
   return (

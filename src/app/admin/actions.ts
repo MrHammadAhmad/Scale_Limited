@@ -47,6 +47,20 @@ export async function deleteLead(id: string) {
   }
 }
 
+export async function updateLeadStatus(id: string, status: string) {
+  try {
+    await prisma.lead.update({
+      where: { id },
+      data: { status }
+    });
+    revalidatePath("/admin/leads");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to update lead status:", error);
+    return { error: "Failed to update lead status" };
+  }
+}
+
 export async function createPortfolioProject(formData: FormData) {
   try {
     const title = formData.get("title") as string;
@@ -97,6 +111,20 @@ export async function deleteConsultation(id: string) {
   } catch (error) {
     console.error("Failed to delete consultation:", error);
     return { error: "Failed to delete consultation" };
+  }
+}
+
+export async function updateConsultationStatus(id: string, status: string) {
+  try {
+    await prisma.consultation.update({
+      where: { id },
+      data: { status }
+    });
+    revalidatePath("/admin/consultations");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to update consultation status:", error);
+    return { error: "Failed to update consultation status" };
   }
 }
 

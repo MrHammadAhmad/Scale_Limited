@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { deleteConsultation } from "../../actions";
-import { Trash2 } from "lucide-react";
+import { deleteConsultation, updateConsultationStatus } from "../../actions";
+import { Trash2, CheckCircle } from "lucide-react";
 
 export default async function ConsultationsPage({
   searchParams,
@@ -84,14 +84,26 @@ export default async function ConsultationsPage({
                       {new Date(consultation.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <form action={async () => {
-                        "use server";
-                        await deleteConsultation(consultation.id);
-                      }}>
-                        <button type="submit" className="text-red-500 hover:text-red-700 transition-colors p-2 rounded-full hover:bg-red-50" title="Delete consultation">
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </form>
+                      <div className="flex justify-end gap-2">
+                        {consultation.status !== 'Completed' && (
+                          <form action={async () => {
+                            "use server";
+                            await updateConsultationStatus(consultation.id, 'Completed');
+                          }}>
+                            <button type="submit" className="text-green-500 hover:text-green-700 transition-colors p-2 rounded-full hover:bg-green-50" title="Mark as Done">
+                              <CheckCircle className="w-4 h-4" />
+                            </button>
+                          </form>
+                        )}
+                        <form action={async () => {
+                          "use server";
+                          await deleteConsultation(consultation.id);
+                        }}>
+                          <button type="submit" className="text-red-500 hover:text-red-700 transition-colors p-2 rounded-full hover:bg-red-50" title="Delete consultation">
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </form>
+                      </div>
                     </td>
                   </tr>
                 ))

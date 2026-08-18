@@ -85,14 +85,26 @@ export default async function LeadsPage({
                       {new Date(lead.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <form action={async () => {
-                        "use server";
-                        await deleteLead(lead.id);
-                      }}>
-                        <button type="submit" className="text-red-500 hover:text-red-700 transition-colors p-2 rounded-full hover:bg-red-50" title="Delete lead">
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </form>
+                      <div className="flex justify-end gap-2">
+                        {lead.status === 'New' && (
+                          <form action={async () => {
+                            "use server";
+                            await updateLeadStatus(lead.id, 'Viewed');
+                          }}>
+                            <button type="submit" className="text-blue-500 hover:text-blue-700 transition-colors p-2 rounded-full hover:bg-blue-50" title="Mark as Viewed">
+                              <Eye className="w-4 h-4" />
+                            </button>
+                          </form>
+                        )}
+                        <form action={async () => {
+                          "use server";
+                          await deleteLead(lead.id);
+                        }}>
+                          <button type="submit" className="text-red-500 hover:text-red-700 transition-colors p-2 rounded-full hover:bg-red-50" title="Delete lead">
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </form>
+                      </div>
                     </td>
                   </tr>
                 ))
