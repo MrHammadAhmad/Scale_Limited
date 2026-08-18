@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import { deletePortfolioProject } from "../../actions";
 
 export default async function AdminPortfolioPage() {
   const projects = await prisma.portfolioProject.findMany({
@@ -53,7 +54,12 @@ export default async function AdminPortfolioPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <a href={`/admin/portfolio/${project.id}/edit`} className="text-problue hover:text-blue-700 mr-4">Edit</a>
-                      <button className="text-red-600 hover:text-red-900">Delete</button>
+                      <form action={async () => {
+                        "use server";
+                        await deletePortfolioProject(project.id);
+                      }} className="inline">
+                        <button type="submit" className="text-red-600 hover:text-red-900">Delete</button>
+                      </form>
                     </td>
                   </tr>
                 ))

@@ -99,3 +99,59 @@ export async function deleteConsultation(id: string) {
     return { error: "Failed to delete consultation" };
   }
 }
+
+export async function deletePortfolioProject(id: string) {
+  try {
+    await prisma.portfolioProject.delete({
+      where: { id },
+    });
+    revalidatePath("/admin/portfolio");
+    revalidatePath("/portfolio");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete portfolio project:", error);
+    return { error: "Failed to delete project" };
+  }
+}
+
+export async function updatePortfolioProject(id: string, formData: FormData) {
+  try {
+    const title = formData.get("title") as string;
+    const slug = formData.get("slug") as string;
+    const client = formData.get("client") as string;
+    const industry = formData.get("industry") as string;
+    const service = formData.get("service") as string;
+    const description = formData.get("description") as string;
+    const image_url = formData.get("image_url") as string || null;
+    const link = formData.get("link") as string || null;
+    const published = formData.get("published") === "on";
+
+    if (!title || !slug || !client || !industry || !service || !description) {
+      return { error: "All required fields must be provided." };
+    }
+
+    await prisma.portfolioProject.update({
+      where: { id },
+      data: {
+        title,
+        slug,
+        client,
+        industry,
+        service,
+        description,
+        image_url,
+        link,
+        published,
+      },
+    });
+
+    revalidatePath("/admin/portfolio");
+    revalidatePath("/portfolio");
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to update portfolio project:", error);
+    return { error: "Failed to update project. The slug might already be in use." };
+  }
+}
+
