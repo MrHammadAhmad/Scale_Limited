@@ -72,33 +72,6 @@ const whyChooseUs = [
   }
 ];
 
-const pricingPlans = [
-  {
-    name: "Staff Augmentation",
-    price: "Custom",
-    description: "Flexible scaling for your existing team with specialized talent.",
-    features: ["Dedicated professionals", "Flexible contracts", "Seamless integration", "Full operational control"],
-    highlighted: false,
-    cta: "Get a Quote"
-  },
-  {
-    name: "Managed Teams",
-    price: "Custom",
-    description: "End-to-end managed teams delivering on specific operational SLAs.",
-    features: ["Fully managed operations", "Dedicated team lead", "Custom SLA reporting", "24/7 coverage options", "Scalable infrastructure"],
-    highlighted: true,
-    cta: "Talk to Sales"
-  },
-  {
-    name: "Technology Projects",
-    price: "Project-based",
-    description: "Fixed-scope technology and AI implementation projects.",
-    features: ["Custom software development", "AI & Automation workflows", "End-to-end delivery", "Post-launch support"],
-    highlighted: false,
-    cta: "Request Proposal"
-  }
-];
-
 const industries = [
   { name: "Finance & Fintech", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", desc: "Secure and scalable solutions for financial institutions." },
   { name: "Healthcare & MedTech", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop", desc: "Compliant technology and support for healthcare providers." },
@@ -115,31 +88,6 @@ const techStack = [
   { name: "TypeScript", icon: "📘" },
   { name: "Docker", icon: "🐳" },
   { name: "Kubernetes", icon: "☸️" }
-];
-
-const successStories = [
-  { title: "Fintech App Scaled 3x", description: "How we helped a fintech startup build their core engineering team in 3 weeks.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" },
-  { title: "Automating BPO Operations", description: "Reducing manual data entry by 80% using custom AI workflows.", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
-  { title: "Global Customer Support", description: "Deploying a 24/7 multilingual support team for a global e-commerce brand.", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1950&auto=format&fit=crop" }
-];
-
-const faqs = [
-  {
-    q: "How fast can you deploy a team for my project?",
-    a: "Depending on the complexity and skill requirements, we can deploy standard operational teams within 1-2 weeks, and specialized tech talent within 2-4 weeks."
-  },
-  {
-    q: "Do you offer flexible pricing models?",
-    a: "Yes, we offer hourly, project-based, and dedicated monthly resource models tailored to your specific budget and operational needs."
-  },
-  {
-    q: "How do you handle time zone differences?",
-    a: "We provide 24/7 global coverage. We can align our team's working hours to perfectly overlap with your local time zone or provide asynchronous support."
-  },
-  {
-    q: "Who manages the augmented staff?",
-    a: "You have direct operational control. We handle all HR, payroll, infrastructure, and retention, while your dedicated team reports directly to your management."
-  }
 ];
 
 export default function ServicesPage() {
@@ -276,63 +224,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 4. PRICING PLANS */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h4 className="text-problue font-bold tracking-wider uppercase text-sm mb-3">Pricing</h4>
-            <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl mb-4">
-              Flexible Engagement Models
-            </h2>
-            <p className="text-lg text-gray-600">
-              Pricing that scales with your business needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
-            {pricingPlans.map((plan, idx) => (
-              <div 
-                key={idx} 
-                className={`rounded-3xl p-8 flex flex-col ${
-                  plan.highlighted 
-                    ? 'bg-navy text-white ring-4 ring-navy/20 shadow-xl transform md:-translate-y-4' 
-                    : 'bg-white border border-gray-200 text-navy shadow-sm'
-                }`}
-              >
-                {plan.highlighted && (
-                  <span className="bg-problue text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full self-start mb-4">Most Popular</span>
-                )}
-                <h3 className={`text-xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-navy'}`}>{plan.name}</h3>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className={`text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-navy'}`}>{plan.price}</span>
-                </div>
-                <p className={`mb-8 ${plan.highlighted ? 'text-gray-300' : 'text-gray-600'}`}>{plan.description}</p>
-                
-                <div className="space-y-4 mb-8 flex-1">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <Check className={`h-5 w-5 flex-shrink-0 ${plan.highlighted ? 'text-problue' : 'text-problue'}`} />
-                      <span className={plan.highlighted ? 'text-gray-200' : 'text-gray-600'}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <Link 
-                  href="/contact" 
-                  className={`w-full py-4 px-6 rounded-xl font-bold text-center transition-colors ${
-                    plan.highlighted 
-                      ? 'bg-problue text-white hover:bg-blue-600' 
-                      : 'bg-gray-100 text-navy hover:bg-gray-200'
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 5. INDUSTRIES WE SERVE */}
       <section className="py-24 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -379,67 +270,6 @@ export default function ServicesPage() {
               <div key={idx} className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center gap-3 hover:border-problue hover:shadow-md transition-all">
                 <span className="text-3xl grayscale group-hover:grayscale-0 transition-all">{tech.icon}</span>
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FREQUENTLY ASKED QUESTIONS */}
-      <section className="py-24 bg-white border-t border-gray-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl mb-4">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <details key={idx} className="group border border-gray-200 bg-white rounded-xl [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-navy font-bold text-lg">
-                  {faq.q}
-                  <span className="relative size-5 shrink-0">
-                    <svg className="size-5 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 mt-2">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. SUCCESS STORIES */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h4 className="text-problue font-bold tracking-wider uppercase text-sm mb-3">Case Studies</h4>
-            <h2 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl mb-4">
-              Success Stories
-            </h2>
-            <p className="text-lg text-gray-600">
-              See how we've helped businesses scale and succeed.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {successStories.map((story, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm group cursor-pointer hover:shadow-lg transition-all">
-                <div className="h-48 overflow-hidden relative">
-                  <img src={story.image} alt={story.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-problue transition-colors">{story.title}</h3>
-                  <p className="text-gray-600 mb-6">{story.description}</p>
-                  <span className="text-sm font-bold text-problue flex items-center">
-                    Read Full Story <ArrowRight className="ml-1 h-4 w-4" />
-                  </span>
-                </div>
               </div>
             ))}
           </div>
