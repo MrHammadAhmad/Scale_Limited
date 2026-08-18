@@ -86,3 +86,16 @@ export async function createPortfolioProject(formData: FormData) {
     return { error: "Failed to create project. The slug might already be in use." };
   }
 }
+
+export async function deleteConsultation(id: string) {
+  try {
+    await prisma.consultation.delete({
+      where: { id },
+    });
+    revalidatePath("/admin/consultations");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete consultation:", error);
+    return { error: "Failed to delete consultation" };
+  }
+}
