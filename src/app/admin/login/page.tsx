@@ -36,7 +36,7 @@ export default function AdminLogin() {
         className="max-w-[400px] w-full bg-[#182235] p-10 rounded-[24px] shadow-2xl border border-white/[0.02]"
       >
         <div className="flex flex-col items-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-tr from-[#1A6FF5] to-[#00C2FF] rounded-2xl shadow-[0_8px_32px_rgba(0,194,255,0.25)] flex items-center justify-center mb-6">
+          <div className="w-20 h-20 bg-[#2563EB] rounded-2xl shadow-[0_8px_32px_rgba(37,99,235,0.25)] flex items-center justify-center mb-6">
             <ShieldCheck className="text-white w-10 h-10" strokeWidth={2} />
           </div>
           <h2 className="text-center text-[28px] font-bold text-white tracking-tight">
@@ -69,7 +69,7 @@ export default function AdminLogin() {
                 name="username"
                 type="text"
                 required
-                className="block w-full pl-[44px] pr-4 py-3.5 bg-[#EAF0FC] border-none rounded-[14px] text-[#111A2C] placeholder-[#111A2C] focus:outline-none focus:ring-2 focus:ring-[#00C2FF] transition-all text-[15px] font-medium"
+                className="block w-full pl-[44px] pr-4 py-3.5 bg-[#EAF0FC] border-none rounded-[14px] text-[#111A2C] placeholder-[#111A2C] focus:outline-none focus:ring-2 focus:ring-[#2563EB] transition-all text-[15px] font-medium"
                 placeholder="admin@scalelimited.com"
               />
             </div>
@@ -83,7 +83,7 @@ export default function AdminLogin() {
                 name="password"
                 type="password"
                 required
-                className="block w-full pl-[44px] pr-4 py-3.5 bg-[#EAF0FC] border-none rounded-[14px] text-[#111A2C] placeholder-[#111A2C] focus:outline-none focus:ring-2 focus:ring-[#00C2FF] transition-all text-[15px] font-medium tracking-[0.2em]"
+                className="block w-full pl-[44px] pr-4 py-3.5 bg-[#EAF0FC] border-none rounded-[14px] text-[#111A2C] placeholder-[#111A2C] focus:outline-none focus:ring-2 focus:ring-[#2563EB] transition-all text-[15px] font-medium tracking-[0.2em]"
                 placeholder="••••••••••"
               />
             </div>
@@ -93,7 +93,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-[14px] px-4 rounded-[14px] text-white bg-gradient-to-r from-[#1A6FF5] to-[#00C2FF] hover:opacity-90 focus:outline-none transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(0,194,255,0.3)] text-[15px] font-bold"
+              className="w-full flex justify-center py-[14px] px-4 rounded-[14px] text-white bg-[#2563EB] hover:bg-[#1D4ED8] focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_20px_rgba(37,99,235,0.3)] text-[15px] font-bold"
             >
               {loading ? (
                 <div className="flex items-center justify-center gap-2">
