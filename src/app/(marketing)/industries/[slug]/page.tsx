@@ -20,7 +20,7 @@ const DEMO_INDUSTRIES = {
     description: "We help healthcare providers and health-tech companies modernize their operations while maintaining strict security and compliance standards. From secure patient data entry to building telehealth platforms, our teams deliver reliability.",
     benefits: ["Strict data security compliance", "Improved patient experiences", "Streamlined administrative tasks", "Modern healthcare software"],
     capabilities: ["Medical Data Entry", "Telehealth App Development", "Patient Support", "Billing Operations"],
-    image: "https://images.unsplash.com/photo-1576091160550-2173ff9e5eb3?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
   },
   "finance": {
     name: "Finance",
