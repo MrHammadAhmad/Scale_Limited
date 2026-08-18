@@ -11,28 +11,32 @@ const DEMO_INDUSTRIES = {
     short_description: "Supporting high-growth tech companies with engineering talent and operational scale.",
     description: "Scale Limited understands the fast-paced nature of the technology sector. We provide scalable engineering teams, customer support, and advanced AI implementations that allow software, SaaS, and IT companies to grow rapidly without the burden of massive overhead.",
     benefits: ["Rapid scaling of engineering teams", "Deep technical expertise", "24/7 technical support", "Reduced time-to-market"],
-    capabilities: ["Software Development Teams", "IT Helpdesk", "Cloud Operations", "AI Integrations"]
+    capabilities: ["Software Development Teams", "IT Helpdesk", "Cloud Operations", "AI Integrations"],
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
   },
   "healthcare": {
     name: "Healthcare",
     short_description: "Providing secure, reliable support and technology solutions for healthcare organizations.",
     description: "We help healthcare providers and health-tech companies modernize their operations while maintaining strict security and compliance standards. From secure patient data entry to building telehealth platforms, our teams deliver reliability.",
     benefits: ["Strict data security compliance", "Improved patient experiences", "Streamlined administrative tasks", "Modern healthcare software"],
-    capabilities: ["Medical Data Entry", "Telehealth App Development", "Patient Support", "Billing Operations"]
+    capabilities: ["Medical Data Entry", "Telehealth App Development", "Patient Support", "Billing Operations"],
+    image: "https://images.unsplash.com/photo-1576091160550-2173ff9e5eb3?q=80&w=2070&auto=format&fit=crop"
   },
   "finance": {
     name: "Finance",
     short_description: "Enabling financial institutions to modernize operations and enhance customer experience.",
     description: "Scale Limited partners with banks, accounting firms, and fintech startups to modernize legacy systems, automate financial reporting, and provide top-tier customer service that builds trust with your clients.",
     benefits: ["Enhanced data accuracy", "Automated compliance reporting", "Secure financial processing", "Improved customer trust"],
-    capabilities: ["Fintech Development", "Accounting Support", "Fraud Detection Systems", "Financial Data Processing"]
+    capabilities: ["Fintech Development", "Accounting Support", "Fraud Detection Systems", "Financial Data Processing"],
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop"
   },
   "e-commerce": {
     name: "E-commerce",
     short_description: "Helping retail and e-commerce brands scale customer support and operational logistics.",
     description: "From managing product catalogs to handling peak-season customer support volumes, we provide the backbone operations for modern retail and e-commerce businesses to thrive in a competitive landscape.",
     benefits: ["Scalable peak-season support", "Flawless catalog management", "Enhanced buyer experience", "Data-driven insights"],
-    capabilities: ["E-commerce Development", "Catalog Management", "Order Processing", "Customer Service"]
+    capabilities: ["E-commerce Development", "Catalog Management", "Order Processing", "Customer Service"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop"
   }
 };
 
@@ -107,18 +111,40 @@ export default async function IndustryDetailPage({
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-navy text-white pt-32 pb-24 lg:pt-40 lg:pb-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <Link href="/industries" className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors">
-            <ArrowRight className="mr-2 h-4 w-4 rotate-180" />
-            Back to Industries
-          </Link>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            {industry.name}
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300">
-            {industry.short_description}
-          </p>
+      <section className="bg-navy text-white pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full overflow-hidden z-0">
+          <div className="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-problue rounded-full mix-blend-multiply filter blur-[120px] opacity-40"></div>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="w-full lg:w-1/2 text-left">
+              <Link href="/industries" className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors font-medium">
+                <ArrowRight className="mr-2 h-4 w-4 rotate-180" />
+                Back to Industries
+              </Link>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                {industry.name}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
+                {industry.short_description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/book-consultation" className="inline-flex items-center justify-center rounded-full bg-problue text-white hover:bg-blue-600 h-14 px-8 text-lg font-semibold shadow-lg transition-all hover:-translate-y-1">
+                  Book Consultation
+                </Link>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-800 aspect-[4/3] w-full">
+                <img 
+                  src={industry.image || "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop"} 
+                  alt={industry.name} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

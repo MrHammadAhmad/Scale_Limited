@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 export default async function AdminPortfolioPage() {
   const projects = await prisma.portfolioProject.findMany({
@@ -14,10 +15,12 @@ export default async function AdminPortfolioPage() {
           <h2 className="text-2xl font-bold text-gray-900">Portfolio Projects</h2>
           <p className="mt-1 text-sm text-gray-500">Manage your success stories and case studies.</p>
         </div>
-        <Button className="bg-navy hover:bg-gray-800">
-          <Plus className="h-4 w-4 mr-2" />
-          Add Project
-        </Button>
+        <Link href="/admin/portfolio/new">
+          <Button className="bg-navy hover:bg-gray-800">
+            <Plus className="h-4 w-4 mr-2" />
+            Add Project
+          </Button>
+        </Link>
       </div>
 
       <div className="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
