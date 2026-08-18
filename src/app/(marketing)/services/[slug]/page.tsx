@@ -79,7 +79,7 @@ const DEMO_SERVICES = {
     description: "Supercharge your sales pipeline with our dedicated lead generation teams. We handle prospecting, cold outreach, and lead qualification, delivering warm prospects directly to your closing team.",
     benefits: ["Increased sales pipeline", "Targeted prospecting", "Qualified meetings", "Scalable outreach"],
     capabilities: ["B2B Lead Generation", "Cold Calling", "Email Outreach", "Appointment Setting"],
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
   },
 
   // Technology Services
